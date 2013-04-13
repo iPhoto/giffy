@@ -40,7 +40,12 @@
     NSDictionary* credentialsDictionary = [userDefaults dictionaryForKey:kCredentials];
     
     if(!credentialsDictionary)
+    {
+        if(self.delegate)
+            [self.delegate authenticationResourceIsMissingCredentials:self];
+        
         return NO;
+    }
     
     UserCredentials* credentials = [[UserCredentials alloc] init];
     
@@ -53,6 +58,14 @@
 }
 
 -(BOOL)loginWithCredentials:(UserCredentials *)credentials
+{
+    if(![self loginWithCredentialsHelper:credentials] && self.delegate )
+        [self.delegate authenticationResource:self DidFailToLoginWithCredentials:credentials];
+    
+    return YES;
+}
+
+-(BOOL)loginWithCredentialsHelper:(UserCredentials *)credentials
 {
     if(!credentials.userName || !credentials.password)
         return NO;
