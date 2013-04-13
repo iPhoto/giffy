@@ -128,9 +128,9 @@
                         <constraints>
                             <constraint firstItem="hdj-YL-N8t" firstAttribute="top" secondItem="ypn-ys-90h" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="1B4-6O-5if"/>
                             <constraint firstItem="M6o-1k-y18" firstAttribute="leading" secondItem="nOM-Zm-ccU" secondAttribute="leading" type="default" id="48V-Ed-bph"/>
-                            <constraint firstItem="LTG-Ip-uW4" firstAttribute="top" secondItem="gKV-YD-UVR" secondAttribute="top" constant="201" id="8SP-Lo-CFO"/>
                             <constraint firstItem="IJo-WL-zMe" firstAttribute="trailing" secondItem="gKV-YD-UVR" secondAttribute="trailing" type="default" id="Cct-dE-BHL"/>
                             <constraint firstItem="hdj-YL-N8t" firstAttribute="leading" secondItem="ypn-ys-90h" secondAttribute="leading" type="default" id="Gco-Z6-BBF"/>
+                            <constraint firstItem="LTG-Ip-uW4" firstAttribute="top" secondItem="M6o-1k-y18" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Kwa-a0-stU"/>
                             <constraint firstItem="M6o-1k-y18" firstAttribute="trailing" secondItem="hdj-YL-N8t" secondAttribute="trailing" type="default" id="LYP-ic-nUD"/>
                             <constraint firstItem="nOM-Zm-ccU" firstAttribute="top" secondItem="hdj-YL-N8t" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="N6A-Us-Nna"/>
                             <constraint firstItem="M6o-1k-y18" firstAttribute="leading" secondItem="LTG-Ip-uW4" secondAttribute="leading" type="default" id="RR1-A5-h5f"/>
@@ -220,10 +220,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" width="16" height="16"/>
+        <image name="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" width="640" height="960"/>
     </resources>
     <classes>
-        <class className="GiffyViewController">
+        <class className="EntryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EntryViewController.h"/>
+        </class>
+        <class className="GiffyViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GiffyViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cameraAction:"/>
@@ -232,7 +235,7 @@
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
-        <class className="LoginViewController">
+        <class className="LoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="password" candidateClass="UITextField"/>
