@@ -220,13 +220,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" width="640" height="960"/>
+        <image name="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" width="16" height="16"/>
     </resources>
     <classes>
-        <class className="EntryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EntryViewController.h"/>
-        </class>
-        <class className="GiffyViewController" superclassName="UIViewController">
+        <class className="GiffyViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GiffyViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cameraAction:"/>
@@ -235,7 +232,7 @@
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
-        <class className="LoginViewController" superclassName="UIViewController">
+        <class className="LoginViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="password" candidateClass="UITextField"/>
