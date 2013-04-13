@@ -43,7 +43,8 @@ build/
 *.ilk
 *.meta
 *.obj
-*.pch
+# We need pch files for the iOS project.
+#*.pch
 *.pdb
 *.pgc
 *.pgd
