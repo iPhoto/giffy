@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using Giffy.Models;
 using Giffy.Utilities;
 
 namespace Giffy.Controllers.Api.Test
 {
+    [Authorize]
     public class TestController : ApiController
     {
         public ApiResult Get(string name)
