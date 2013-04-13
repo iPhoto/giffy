@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -27,12 +28,19 @@ namespace Giffy
             AuthConfig.RegisterAuth();
 
             InitializeDatabase();
+            SetJsonFormatter();
         }
 
         private void InitializeDatabase()
         {
             Database.SetInitializer<ModelContext>(new ModelDatabaseInitializer());
             Database.SetInitializer<UsersContext>(new DropCreateDatabaseIfModelChanges<UsersContext>());
+        }
+
+        private void SetJsonFormatter()
+        {
+            GlobalConfiguration.Configuration.Formatters.Clear();
+            GlobalConfiguration.Configuration.Formatters.Add(new JsonMediaTypeFormatter());
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Giffy.Utilities
             return GetDevice(deviceString);
         }
 
-        public static Device GetDevice(string deviceString)
+        public static Device GetDevice(this string deviceString)
         {
             if (deviceString != null)
                 deviceString = deviceString.ToLower();
@@ -31,7 +31,7 @@ namespace Giffy.Utilities
             }
         }
 
-        public static string GetDeviceString(Device device)
+        public static string GetDeviceString(this Device device)
         {
             switch (device)
             {

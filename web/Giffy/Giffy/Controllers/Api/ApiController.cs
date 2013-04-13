@@ -34,5 +34,31 @@ namespace Giffy.Controllers
         {
             return DeviceDetector.GetDevice(HttpContext.Current.Request);
         }
+
+        protected ApiResult Success(IEnumerable<object> data)
+        {
+            if (data == null)
+                throw new ArgumentNullException("data");
+
+            return new ApiResult
+            {
+                Success = true,
+                Data = data
+            };
+        }
+
+        protected ApiResult Success(params object[] data)
+        {
+            return Success((IEnumerable<object>)data);
+        }
+
+        protected ApiResult Failure(string message)
+        {
+            return new ApiResult
+            {
+                Success = false,
+                Data = new [] { message }
+            };
+        }
     }
 }

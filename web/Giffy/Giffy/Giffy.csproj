@@ -185,6 +185,7 @@
     <Compile Include="Controllers\Api\Account\LoginController.cs" />
     <Compile Include="Controllers\Api\Account\LogoutController.cs" />
     <Compile Include="Controllers\Api\Account\RegisterController.cs" />
+    <Compile Include="Controllers\Api\Test\TestController.cs" />
     <Compile Include="Controllers\Application\AccountController.cs" />
     <Compile Include="Controllers\Application\HomeController.cs" />
     <Compile Include="Filters\InitializeApiMembershipAttribute.cs" />
@@ -193,6 +194,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account\AccountModels.cs" />
+    <Compile Include="Models\ApiResult.cs" />
     <Compile Include="Models\Model.cs" />
     <Compile Include="Models\ModelContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
