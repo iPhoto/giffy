@@ -134,9 +134,40 @@
     }
 }
 
+UIImage* resizeImage(UIImage *inImage)
+{
+    CGRect thumbRect = CGRectMake(0.0, 0.0, 640.0, 480.0);
+    CGImageRef          imageRef = [inImage CGImage];
+    CGImageAlphaInfo    alphaInfo = CGImageGetAlphaInfo(imageRef);
+ 
+    if (alphaInfo == kCGImageAlphaNone)
+        alphaInfo = kCGImageAlphaNoneSkipLast;
+    
+    CGContextRef bitmap = CGBitmapContextCreate(
+                                                NULL,
+                                                thumbRect.size.width,
+                                                thumbRect.size.height,
+                                                CGImageGetBitsPerComponent(imageRef),
+                                                4 * thumbRect.size.width,
+                                                CGImageGetColorSpace(imageRef),
+                                                alphaInfo
+                                                );
+    
+    CGContextDrawImage(bitmap, thumbRect, imageRef);
+    
+    CGImageRef  ref = CGBitmapContextCreateImage(bitmap);
+    UIImage*    result = [UIImage imageWithCGImage:ref];
+    
+    CGContextRelease(bitmap);
+    CGImageRelease(ref);
+    
+    return result;
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
+    image = resizeImage(image);
     
     if (self.delegate)
         [self.delegate didTakePicture:image];

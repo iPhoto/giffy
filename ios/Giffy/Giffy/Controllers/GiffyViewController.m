@@ -41,6 +41,8 @@
         [toolbarItems addObjectsFromArray:self.toolbar.items];
         [toolbarItems removeObjectAtIndex:2];
         [self.toolbar setItems:toolbarItems animated:NO];
+    } else {
+        [self showImagePicker:UIImagePickerControllerSourceTypeCamera];
     }
 }
 

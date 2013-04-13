@@ -31,6 +31,10 @@
 		7584346B1719D3BF007C496F /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 758434671719D3BF007C496F /* Icon-Small@2x.png */; };
 		7584346C1719D3BF007C496F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 758434681719D3BF007C496F /* Icon.png */; };
 		7584346D1719D3BF007C496F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 758434691719D3BF007C496F /* Icon@2x.png */; };
+		7584346F171A01C5007C496F /* iPhone-5-Gradient-Background-05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7584346E171A01C5007C496F /* iPhone-5-Gradient-Background-05.jpg */; };
+		75843471171A0236007C496F /* Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75843470171A0236007C496F /* Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg */; };
+		75843474171A11E0007C496F /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843473171A11E0007C496F /* EntryViewController.m */; };
+		75843477171A11F8007C496F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843476171A11F8007C496F /* LoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,12 @@
 		758434671719D3BF007C496F /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		758434681719D3BF007C496F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		758434691719D3BF007C496F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		7584346E171A01C5007C496F /* iPhone-5-Gradient-Background-05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "iPhone-5-Gradient-Background-05.jpg"; sourceTree = "<group>"; };
+		75843470171A0236007C496F /* Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg"; sourceTree = "<group>"; };
+		75843472171A11E0007C496F /* EntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryViewController.h; sourceTree = "<group>"; };
+		75843473171A11E0007C496F /* EntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryViewController.m; sourceTree = "<group>"; };
+		75843475171A11F8007C496F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controllers/LoginViewController.h; sourceTree = "<group>"; };
+		75843476171A11F8007C496F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +159,8 @@
 		758433D41719015C007C496F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				75843470171A0236007C496F /* Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg */,
+				7584346E171A01C5007C496F /* iPhone-5-Gradient-Background-05.jpg */,
 				758434641719D1C0007C496F /* tick.aiff */,
 				758433D51719015C007C496F /* Giffy-Info.plist */,
 				758433D61719015C007C496F /* InfoPlist.strings */,
@@ -187,6 +199,10 @@
 		7584340B171909BB007C496F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				75843472171A11E0007C496F /* EntryViewController.h */,
+				75843473171A11E0007C496F /* EntryViewController.m */,
+				75843475171A11F8007C496F /* LoginViewController.h */,
+				75843476171A11F8007C496F /* LoginViewController.m */,
 				7584341117198FEE007C496F /* GiffyViewController.h */,
 				7584341217198FEE007C496F /* GiffyViewController.m */,
 				7584341617199869007C496F /* OverlayViewController.h */,
@@ -278,6 +294,8 @@
 				7584346B1719D3BF007C496F /* Icon-Small@2x.png in Resources */,
 				7584346C1719D3BF007C496F /* Icon.png in Resources */,
 				7584346D1719D3BF007C496F /* Icon@2x.png in Resources */,
+				7584346F171A01C5007C496F /* iPhone-5-Gradient-Background-05.jpg in Resources */,
+				75843471171A0236007C496F /* Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +334,8 @@
 				758433DE1719015C007C496F /* GiffyAppDelegate.m in Sources */,
 				7584341317198FEE007C496F /* GiffyViewController.m in Sources */,
 				7584341817199869007C496F /* OverlayViewController.m in Sources */,
+				75843474171A11E0007C496F /* EntryViewController.m in Sources */,
+				75843477171A11F8007C496F /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
