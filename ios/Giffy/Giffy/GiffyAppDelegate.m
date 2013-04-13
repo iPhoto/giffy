@@ -9,12 +9,18 @@
 #import "GiffyAppDelegate.h"
 #import "AuthenticationResource.h"
 
+@interface GiffyAppDelegate() <AuthenticationResourceDelegate>
+@end
+
 @implementation GiffyAppDelegate
 
 -(AuthenticationResource*)authenticationResource
 {
     if (!_authenticationResource)
+    {
         _authenticationResource = [[AuthenticationResource alloc] init];
+        _authenticationResource.delegate = self;
+    }
     
     return _authenticationResource;
 }
@@ -60,6 +66,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - AuthenticationResourceDelegate members
+
+-(void)authenticationResource:(AuthenticationResource *)resource DidFailToLoginWithCredentials:(UserCredentials *)credentials
+{
+    // TODO: Notify the user that we could not login with their credentials. Maybe prompt them for a new username/password.
+}
+
+-(void)authenticationResourceIsMissingCredentials:(AuthenticationResource *)resource
+{
+    // TODO: Notify the user that we do not have credentials for them and they will need to register.
 }
 
 @end
