@@ -17,12 +17,20 @@
 		758433E21719015C007C496F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 758433E11719015C007C496F /* Default@2x.png */; };
 		758433E41719015C007C496F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 758433E31719015C007C496F /* Default-568h@2x.png */; };
 		758433E71719015C007C496F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 758433E51719015C007C496F /* MainStoryboard.storyboard */; };
-		758433EA1719015C007C496F /* GiffyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758433E91719015C007C496F /* GiffyViewController.m */; };
 		758433F21719015C007C496F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433F11719015C007C496F /* SenTestingKit.framework */; };
 		758433F31719015C007C496F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433CD1719015C007C496F /* UIKit.framework */; };
 		758433F41719015C007C496F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433CF1719015C007C496F /* Foundation.framework */; };
 		758433FC1719015C007C496F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 758433FA1719015C007C496F /* InfoPlist.strings */; };
 		758433FF1719015C007C496F /* GiffyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 758433FE1719015C007C496F /* GiffyTests.m */; };
+		7584341317198FEE007C496F /* GiffyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584341217198FEE007C496F /* GiffyViewController.m */; };
+		7584341817199869007C496F /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584341717199869007C496F /* OverlayViewController.m */; };
+		7584341A17199908007C496F /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7584341917199908007C496F /* OverlayViewController.xib */; };
+		758434631719CB76007C496F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758434621719CB76007C496F /* AudioToolbox.framework */; };
+		758434651719D1C0007C496F /* tick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 758434641719D1C0007C496F /* tick.aiff */; };
+		7584346A1719D3BF007C496F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 758434661719D3BF007C496F /* Icon-Small.png */; };
+		7584346B1719D3BF007C496F /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 758434671719D3BF007C496F /* Icon-Small@2x.png */; };
+		7584346C1719D3BF007C496F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 758434681719D3BF007C496F /* Icon.png */; };
+		7584346D1719D3BF007C496F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 758434691719D3BF007C496F /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +58,23 @@
 		758433E11719015C007C496F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		758433E31719015C007C496F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		758433E61719015C007C496F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		758433E81719015C007C496F /* GiffyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiffyViewController.h; sourceTree = "<group>"; };
-		758433E91719015C007C496F /* GiffyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiffyViewController.m; sourceTree = "<group>"; };
 		758433F01719015C007C496F /* GiffyTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GiffyTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		758433F11719015C007C496F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		758433F91719015C007C496F /* GiffyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GiffyTests-Info.plist"; sourceTree = "<group>"; };
 		758433FB1719015C007C496F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		758433FD1719015C007C496F /* GiffyTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiffyTests.h; sourceTree = "<group>"; };
 		758433FE1719015C007C496F /* GiffyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiffyTests.m; sourceTree = "<group>"; };
+		7584341117198FEE007C496F /* GiffyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GiffyViewController.h; path = Controllers/GiffyViewController.h; sourceTree = "<group>"; };
+		7584341217198FEE007C496F /* GiffyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GiffyViewController.m; path = Controllers/GiffyViewController.m; sourceTree = "<group>"; };
+		7584341617199869007C496F /* OverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayViewController.h; path = Controllers/OverlayViewController.h; sourceTree = "<group>"; };
+		7584341717199869007C496F /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayViewController.m; path = Controllers/OverlayViewController.m; sourceTree = "<group>"; };
+		7584341917199908007C496F /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
+		758434621719CB76007C496F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		758434641719D1C0007C496F /* tick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick.aiff; sourceTree = "<group>"; };
+		758434661719D3BF007C496F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		758434671719D3BF007C496F /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		758434681719D3BF007C496F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		758434691719D3BF007C496F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				758434631719CB76007C496F /* AudioToolbox.framework in Frameworks */,
 				758433CE1719015C007C496F /* UIKit.framework in Frameworks */,
 				758433D01719015C007C496F /* Foundation.framework in Frameworks */,
 				758433D21719015C007C496F /* CoreGraphics.framework in Frameworks */,
@@ -106,6 +124,7 @@
 		758433CC1719015C007C496F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				758434621719CB76007C496F /* AudioToolbox.framework */,
 				758433CD1719015C007C496F /* UIKit.framework */,
 				758433CF1719015C007C496F /* Foundation.framework */,
 				758433D11719015C007C496F /* CoreGraphics.framework */,
@@ -117,11 +136,11 @@
 		758433D31719015C007C496F /* Giffy */ = {
 			isa = PBXGroup;
 			children = (
+				7584340B171909BB007C496F /* Controllers */,
 				758433DC1719015C007C496F /* GiffyAppDelegate.h */,
 				758433DD1719015C007C496F /* GiffyAppDelegate.m */,
 				758433E51719015C007C496F /* MainStoryboard.storyboard */,
-				758433E81719015C007C496F /* GiffyViewController.h */,
-				758433E91719015C007C496F /* GiffyViewController.m */,
+				7584341917199908007C496F /* OverlayViewController.xib */,
 				758433D41719015C007C496F /* Supporting Files */,
 			);
 			path = Giffy;
@@ -130,10 +149,15 @@
 		758433D41719015C007C496F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				758434641719D1C0007C496F /* tick.aiff */,
 				758433D51719015C007C496F /* Giffy-Info.plist */,
 				758433D61719015C007C496F /* InfoPlist.strings */,
 				758433D91719015C007C496F /* main.m */,
 				758433DB1719015C007C496F /* Giffy-Prefix.pch */,
+				758434661719D3BF007C496F /* Icon-Small.png */,
+				758434671719D3BF007C496F /* Icon-Small@2x.png */,
+				758434681719D3BF007C496F /* Icon.png */,
+				758434691719D3BF007C496F /* Icon@2x.png */,
 				758433DF1719015C007C496F /* Default.png */,
 				758433E11719015C007C496F /* Default@2x.png */,
 				758433E31719015C007C496F /* Default-568h@2x.png */,
@@ -158,6 +182,17 @@
 				758433FA1719015C007C496F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7584340B171909BB007C496F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7584341117198FEE007C496F /* GiffyViewController.h */,
+				7584341217198FEE007C496F /* GiffyViewController.m */,
+				7584341617199869007C496F /* OverlayViewController.h */,
+				7584341717199869007C496F /* OverlayViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +272,12 @@
 				758433E21719015C007C496F /* Default@2x.png in Resources */,
 				758433E41719015C007C496F /* Default-568h@2x.png in Resources */,
 				758433E71719015C007C496F /* MainStoryboard.storyboard in Resources */,
+				7584341A17199908007C496F /* OverlayViewController.xib in Resources */,
+				758434651719D1C0007C496F /* tick.aiff in Resources */,
+				7584346A1719D3BF007C496F /* Icon-Small.png in Resources */,
+				7584346B1719D3BF007C496F /* Icon-Small@2x.png in Resources */,
+				7584346C1719D3BF007C496F /* Icon.png in Resources */,
+				7584346D1719D3BF007C496F /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +314,8 @@
 			files = (
 				758433DA1719015C007C496F /* main.m in Sources */,
 				758433DE1719015C007C496F /* GiffyAppDelegate.m in Sources */,
-				758433EA1719015C007C496F /* GiffyViewController.m in Sources */,
+				7584341317198FEE007C496F /* GiffyViewController.m in Sources */,
+				7584341817199869007C496F /* OverlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +496,7 @@
 				758434041719015C007C496F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		758434051719015C007C496F /* Build configuration list for PBXNativeTarget "GiffyTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +505,7 @@
 				758434071719015C007C496F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
