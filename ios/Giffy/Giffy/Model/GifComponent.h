@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "BuilderId.h"
+#import "Model.h"
 
-@interface GifComponent : NSObject
+@interface GifComponent : Model
 
 @property (nonatomic) BuilderId* builderId;
 @property (strong, nonatomic) NSData* imageData;

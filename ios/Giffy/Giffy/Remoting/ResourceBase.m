@@ -30,7 +30,8 @@
 {
     if (!_urlsUsingQueryString)
         _urlsUsingQueryString = [[NSSet alloc] initWithArray:@[
-                                 [NSString stringWithFormat:@"%@%@/%@", kBaseUrl, kGifController_Name, kGifController_Finish_Action]
+                                 [NSString stringWithFormat:@"%@%@", kBaseUrl, kGifController_Name],
+                                 [NSString stringWithFormat:@"%@%@/%@", kBaseUrl, kGifController_Name, kGifController_Finish_Action],
                                  ]];
     
     return _urlsUsingQueryString;
@@ -49,7 +50,7 @@
         urlString = [urlString stringByAppendingFormat:@"/%@", action];
     
     BOOL shouldUseQueryString = [self.urlsUsingQueryString containsObject:urlString];
-    if(shouldUseQueryString)
+    if (shouldUseQueryString && values)
     {
         NSString *queryParameters = @"?";
         
@@ -60,13 +61,13 @@
                 queryParameters = [queryParameters stringByAppendingString:@"&"];
             
             id value = values[key];
-            queryParameters = [queryParameters stringByAppendingFormat:@"%@=%@", key, value]; // TODO: escape strings
+            queryParameters = [queryParameters stringByAppendingFormat:@"%@=%@", key, value];
             
             didAddFirstParameter = YES;
         }
         
         urlString = [urlString stringByAppendingString:queryParameters];
-    }
+    } 
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
     [request addValue:@"application/json" forHTTPHeaderField: @"Content-Type"];
@@ -143,6 +144,31 @@
 
 #pragma mark - Serialization Methods
 
++(NSArray*)arrayOfGifContainersFromResponse:(Response*)response
+{
+    if (![response.data isKindOfClass:[NSArray class]])
+    {
+        NSLog(@"Unexpected data object type.");
+        return nil;
+    }
+    
+    NSArray* dataArray = (NSArray*)response.data;
+    NSMutableArray * resultArray = [[NSMutableArray alloc] initWithCapacity:[dataArray count]];
+    
+    for (id value in dataArray)
+    {
+        if (![value isKindOfClass:[NSDictionary class]])
+        {
+            NSLog(@"Unexpected data object type.");
+            return nil;
+        }
+        
+        [resultArray addObject:[ResourceBase gifContainerFromDictionary:(NSDictionary*)value]];
+    }
+    
+    return resultArray;
+}
+
 +(Authentication*)authenticationFromResponse:(Response*)response
 {
     if(![response.data isKindOfClass:[NSDictionary class]])
@@ -194,15 +220,7 @@
     }
     
     NSDictionary* dataDictionary = (NSDictionary*)response.data;
-    
-    GifContainer* container = [[GifContainer alloc] init];
-    
-    container.gif = [Base64 dataForBase64:dataDictionary[kGifContainer_Gif_Key]];
-    container.gifDescription = dataDictionary[kGifContainer_Description_Key];
-    container.name = dataDictionary[kGifContainer_Name_Key];
-    container.thumbnail = [Base64 dataForBase64:dataDictionary[kGifContainer_Thumbnail_Key]];
-    
-    return container;
+    return [ResourceBase gifContainerFromDictionary:dataDictionary];
 }
 
 +(NSDictionary*)jsonDictionaryFromGifComponent:(GifComponent*)component
@@ -212,6 +230,19 @@
 }
 
 #pragma mark - Helper methods
+
++(GifContainer*)gifContainerFromDictionary:(NSDictionary*) dataDictionary
+{
+    GifContainer* container = [[GifContainer alloc] init];
+    
+    container.gif = [Base64 dataForBase64:dataDictionary[kGifContainer_Gif_Key]];
+    container.gifDescription = dataDictionary[kGifContainer_Description_Key];
+    container.idValue = [(NSNumber*)dataDictionary[kModel_ID_Key] longValue];
+    container.name = dataDictionary[kGifContainer_Name_Key];
+    container.thumbnail = [Base64 dataForBase64:dataDictionary[kGifContainer_Thumbnail_Key]];
+    
+    return container;
+}
 
 +(Response*)responseFromError:(NSError*)error
 {

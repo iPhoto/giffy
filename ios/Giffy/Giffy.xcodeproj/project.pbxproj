@@ -17,6 +17,7 @@
 		171D7332171A26640098AD05 /* GifResouce.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D7331171A26640098AD05 /* GifResouce.m */; };
 		171D7335171A269F0098AD05 /* BuilderId.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D7334171A269F0098AD05 /* BuilderId.m */; };
 		171D7339171A45320098AD05 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D7338171A45320098AD05 /* Base64.m */; };
+		171D733C171A54040098AD05 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D733B171A54030098AD05 /* Model.m */; };
 		758433CE1719015C007C496F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433CD1719015C007C496F /* UIKit.framework */; };
 		758433D01719015C007C496F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433CF1719015C007C496F /* Foundation.framework */; };
 		758433D21719015C007C496F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433D11719015C007C496F /* CoreGraphics.framework */; };
@@ -79,6 +80,8 @@
 		171D7334171A269F0098AD05 /* BuilderId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuilderId.m; path = Model/BuilderId.m; sourceTree = "<group>"; };
 		171D7337171A45320098AD05 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = Utilities/Base64.h; sourceTree = "<group>"; };
 		171D7338171A45320098AD05 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base64.m; path = Utilities/Base64.m; sourceTree = "<group>"; };
+		171D733A171A54030098AD05 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = Model/Model.h; sourceTree = "<group>"; };
+		171D733B171A54030098AD05 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = Model/Model.m; sourceTree = "<group>"; };
 		758433CA1719015C007C496F /* Giffy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Giffy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758433CD1719015C007C496F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		758433CF1719015C007C496F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -171,6 +174,8 @@
 				171D732B171A1EB60098AD05 /* GifComponent.m */,
 				171D732D171A1F310098AD05 /* GifContainer.h */,
 				171D732E171A1F310098AD05 /* GifContainer.m */,
+				171D733A171A54030098AD05 /* Model.h */,
+				171D733B171A54030098AD05 /* Model.m */,
 				171D73211719F8650098AD05 /* UserCredentials.h */,
 				171D73221719F8650098AD05 /* UserCredentials.m */,
 			);
@@ -426,6 +431,7 @@
 				171D7332171A26640098AD05 /* GifResouce.m in Sources */,
 				171D7335171A269F0098AD05 /* BuilderId.m in Sources */,
 				171D7339171A45320098AD05 /* Base64.m in Sources */,
+				171D733C171A54040098AD05 /* Model.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

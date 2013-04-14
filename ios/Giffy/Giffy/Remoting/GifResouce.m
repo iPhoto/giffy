@@ -31,12 +31,16 @@
     return [GifResouce boolFromResponse:response];
 }
 
--(BOOL)addName:(NSString*)name description:(NSString*) description
+-(BOOL)addName:(NSString*)name description:(NSString*) description toContainer:(int)containerId
 {
+    NSDictionary *values = @{kGifController_GifContainerID_Key : @(containerId),
+                             kGifContainer_Name_Key : name,
+                             kGifContainer_Description_Key: description};
+    
     Response* response = [self makeRequestFromController:kGifController_Name
                                                     type:RequestTypePost
                                                   action:kGifController_AddDescription_Action
-                                                  values:@{kGifContainer_Name_Key : name, kGifContainer_Description_Key: description}];
+                                                  values:values];
     
     if (!response.success)
     {
@@ -63,8 +67,35 @@
     return [GifResouce gifContainerFromResponse:response];
 }
 
-//-(NSArray*)get; // Returns an array of GifContainer
-//-(GifContainer*)get:(BuilderId*)builderId;
+-(NSArray*)get
+{
+    Response* response = [self makeRequestFromController:kGifController_Name
+                                                    type:RequestTypeGet
+                                                  values:nil];
+    
+    if (!response.success)
+    {
+        NSLog(@"gif/get was not successful: %@", response.message);
+        return NO;
+    }
+    
+    return [GifResouce arrayOfGifContainersFromResponse:response];
+}
+
+-(GifContainer*)get:(int)containerId
+{
+    Response* response = [self makeRequestFromController:kGifController_Name
+                                                    type:RequestTypeGet
+                                                  values:@{kGifController_Id_Parameter : @(containerId)}];
+    
+    if (!response.success)
+    {
+        NSLog(@"gif/get was not successful: %@", response.message);
+        return NO;
+    }
+    
+    return [GifResouce gifContainerFromResponse:response];
+}
 
 -(BuilderId*)start
 {

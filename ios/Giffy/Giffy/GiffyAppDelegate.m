@@ -45,17 +45,37 @@
 //            {
 //                GifComponent *component = [[GifComponent alloc] init];
 //                component.builderId = builderId;
-//                component.imageData = [@"Hello" dataUsingEncoding:NSUTF8StringEncoding]; // TODO: Use real data
+//                
+//                UIImage* image = [UIImage imageNamed:@"Default.png"];
+//                
+//                component.imageData = UIImagePNGRepresentation(image);
 //                component.order = 1;
 //                BOOL didAdd = [resource add:component];
 //                if (didAdd)
 //                {
 //                }
 //                
-//                GifContainer *container = [resource finish:builderId];
-//                if (container)
+//                GifContainer *container1 = [resource finish:builderId];
+//                if (container1)
 //                {
 //                    
+//                }
+//                
+//                BOOL result = [resource addName:@"Foo" description:@"My giffy gif" toContainer:container1.idValue];
+//                if(result)
+//                {
+//                }
+//
+//                
+//                GifContainer *container2 = [resource get:container1.idValue];
+//                if (container2)
+//                {
+//                    
+//                }
+//                
+//                NSArray *allContainers = [resource get];
+//                if (allContainers)
+//                {
 //                }
 //            }
 //        }

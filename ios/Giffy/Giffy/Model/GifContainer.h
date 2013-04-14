@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Model.h"
 
-@interface GifContainer : NSObject
+@interface GifContainer : Model
 
 @property (strong, nonatomic) NSData *gif;
 @property (strong, nonatomic) NSString *gifDescription;
