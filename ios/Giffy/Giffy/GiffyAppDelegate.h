@@ -11,7 +11,7 @@
 
 @interface GiffyAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) AuthenticationResource *authenticationResource;
+@property (readonly, strong, nonatomic) AuthenticationResource *authenticationResource;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

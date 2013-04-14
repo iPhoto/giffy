@@ -166,7 +166,7 @@
         [resultArray addObject:[ResourceBase gifContainerFromDictionary:(NSDictionary*)value]];
     }
     
-    return resultArray;
+    return [resultArray copy];
 }
 
 +(Authentication*)authenticationFromResponse:(Response*)response

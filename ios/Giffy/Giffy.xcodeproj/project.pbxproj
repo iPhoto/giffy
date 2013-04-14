@@ -21,6 +21,7 @@
 		171D733F171A65100098AD05 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D733E171A65100098AD05 /* RegisterModel.m */; };
 		17C3AC64171AFD56006E0712 /* GifManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C3AC63171AFD56006E0712 /* GifManager.m */; };
 		17C3AC67171B0827006E0712 /* ContainerId.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C3AC66171B0827006E0712 /* ContainerId.m */; };
+		17C3AC6C171B2636006E0712 /* GifRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C3AC6B171B2636006E0712 /* GifRepository.m */; };
 		758433CE1719015C007C496F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433CD1719015C007C496F /* UIKit.framework */; };
 		758433D01719015C007C496F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433CF1719015C007C496F /* Foundation.framework */; };
 		758433D21719015C007C496F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433D11719015C007C496F /* CoreGraphics.framework */; };
@@ -103,6 +104,8 @@
 		17C3AC65171B0827006E0712 /* ContainerId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerId.h; path = Model/ContainerId.h; sourceTree = "<group>"; };
 		17C3AC66171B0827006E0712 /* ContainerId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerId.m; path = Model/ContainerId.m; sourceTree = "<group>"; };
 		17C3AC69171B1A31006E0712 /* NSMutableArray_ThreadSafeQueueAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NSMutableArray_ThreadSafeQueueAdditions.h; path = Utilities/NSMutableArray_ThreadSafeQueueAdditions.h; sourceTree = "<group>"; };
+		17C3AC6A171B2636006E0712 /* GifRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GifRepository.h; path = Model/GifRepository.h; sourceTree = "<group>"; };
+		17C3AC6B171B2636006E0712 /* GifRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GifRepository.m; path = Model/GifRepository.m; sourceTree = "<group>"; };
 		758433CA1719015C007C496F /* Giffy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Giffy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758433CD1719015C007C496F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		758433CF1719015C007C496F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -208,14 +211,16 @@
 				171D732B171A1EB60098AD05 /* GifComponent.m */,
 				171D732D171A1F310098AD05 /* GifContainer.h */,
 				171D732E171A1F310098AD05 /* GifContainer.m */,
+				17C3AC62171AFD56006E0712 /* GifManager.h */,
+				17C3AC63171AFD56006E0712 /* GifManager.m */,
+				17C3AC6A171B2636006E0712 /* GifRepository.h */,
+				17C3AC6B171B2636006E0712 /* GifRepository.m */,
 				171D733A171A54030098AD05 /* Model.h */,
 				171D733B171A54030098AD05 /* Model.m */,
 				171D733D171A65100098AD05 /* RegisterModel.h */,
 				171D733E171A65100098AD05 /* RegisterModel.m */,
 				171D73211719F8650098AD05 /* UserCredentials.h */,
 				171D73221719F8650098AD05 /* UserCredentials.m */,
-				17C3AC62171AFD56006E0712 /* GifManager.h */,
-				17C3AC63171AFD56006E0712 /* GifManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				7584349B171B2C26007C496F /* OverlayViewController.m in Sources */,
 				17C3AC64171AFD56006E0712 /* GifManager.m in Sources */,
 				17C3AC67171B0827006E0712 /* ContainerId.m in Sources */,
+				17C3AC6C171B2636006E0712 /* GifRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

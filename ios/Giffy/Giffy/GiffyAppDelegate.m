@@ -8,14 +8,15 @@
 
 #import "GiffyAppDelegate.h"
 
-#import "AuthenticationResource.h"
 #import "GifManager.h"
-#import "GifResouce.h"
+#import "GifRepository.h"
 
 @interface GiffyAppDelegate() <AuthenticationResourceDelegate>
 @end
 
 @implementation GiffyAppDelegate
+
+@synthesize authenticationResource = _authenticationResource;
 
 -(AuthenticationResource*)authenticationResource
 {
@@ -30,6 +31,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+        GifRepository *repository = [[GifRepository alloc] init];
+        
+        NSArray *managers = [repository getCompletedGifManagers];
+        
+        GifManager *manager = [managers objectAtIndex:0];
+        manager.name = @"Test update";
+        [manager update];
+    });
+
     // Override point for customization after application launch.
     return YES;
 }

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "GifContainer.h"
+
 @class GifManager;
 
 @protocol GifManagerDelegate <NSObject>
@@ -25,14 +27,16 @@
 @interface GifManager : NSObject
 
 -(id)initWithDelegate:(id<GifManagerDelegate>)delegate;
+-(id)initWithGifContainer:(GifContainer *)container;
 
 -(void)addImage:(UIImage *)image;
 -(void)finish;
 -(void)update;
 
-@property (readonly, nonatomic) id<GifManagerDelegate> delegate;
-@property (atomic) NSString* description;
+@property (strong, nonatomic) id<GifManagerDelegate> delegate;
 @property (readonly, atomic) UIImage* gif;
+@property (atomic) NSString* gifDescription;
+@property (readonly, nonatomic) BOOL isComplete;
 @property (atomic) NSString* name;
 @property (readonly, atomic) UIImage* preview;
 @property (readonly, atomic) UIImage* thumbnail;
