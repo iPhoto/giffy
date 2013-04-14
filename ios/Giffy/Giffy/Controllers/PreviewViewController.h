@@ -14,7 +14,9 @@
 @protocol PreviewViewControllerDelegate <NSObject>
 
 @required
+
 -(void)previewViewWasCancelled:(PreviewViewController *)sender;
+-(void)previewViewWasUpdated:(PreviewViewController *)sender;
 
 @end
 

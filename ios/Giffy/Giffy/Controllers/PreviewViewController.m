@@ -67,10 +67,8 @@
 }
 
 - (IBAction)cancel:(id)sender {
-    // TODO: Remove the GIF from the server
-    self.gifManager = nil;
-    
     [self.delegate previewViewWasCancelled:self];
+    self.gifManager = nil;
 }
 
 - (IBAction)saveInformation:(id)sender {
@@ -101,14 +99,8 @@
 
 - (void)onPreviewComplete
 {
+    [self.delegate previewViewWasUpdated:self];
     self.gifManager = nil;
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
-                                                        message:@"TODO: Transition to next screen"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles: nil];
-    [alertView show];
 }
 
 #pragma mark - GifManagerDelegate methods

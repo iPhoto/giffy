@@ -237,7 +237,7 @@
     NSLog(@"GifManager Error: %@", errorMessage);
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (id<GifManagerDelegate> delegate in self.delegates)
+        for (id<GifManagerDelegate> delegate in [self.delegates copy])
         {
             if([delegate respondsToSelector:@selector(gifManager:didReceiveError:)])
                 [delegate gifManager:self didReceiveError:errorMessage];
@@ -248,7 +248,7 @@
 -(void)notifyFinished
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (id<GifManagerDelegate> delegate in self.delegates)
+        for (id<GifManagerDelegate> delegate in [self.delegates copy])
         {
             if([delegate respondsToSelector:@selector(gifManagerDidFinishCreatingGif:)])
                 [delegate gifManagerDidFinishCreatingGif:self];
@@ -259,7 +259,7 @@
 -(void)notifyUpdateComplete
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (id<GifManagerDelegate> delegate in self.delegates)
+        for (id<GifManagerDelegate> delegate in [self.delegates copy])
         {
             if([delegate respondsToSelector:@selector(gifManagerDidFinishUpdating:)])
                 [delegate gifManagerDidFinishUpdating:self];
@@ -270,7 +270,7 @@
 -(void)notifyUpdloadedImage:(int)imageIndex
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (id<GifManagerDelegate> delegate in self.delegates)
+        for (id<GifManagerDelegate> delegate in [self.delegates copy])
         {
             if([delegate respondsToSelector:@selector(gifManager:didFinishUploadingImageIndex:of:)])
                [delegate gifManager:self didFinishUploadingImageIndex:imageIndex of:self.addedImageCount];

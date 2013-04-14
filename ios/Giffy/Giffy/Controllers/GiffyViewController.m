@@ -112,6 +112,12 @@
 
 -(void)previewViewWasCancelled:(PreviewViewController *)sender
 {
+    // TODO: Remove the GIF from the server
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)previewViewWasUpdated:(PreviewViewController *)sender
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

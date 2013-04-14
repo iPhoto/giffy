@@ -310,10 +310,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-Bj-xqS"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-Bj-xqS">
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="677" constant="460" type="user" id="whG-Vp-lyV"/>
+                                </constraints>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcq-5e-gX2">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Y2z-Iz-PJy"/>
+                                    <constraint firstAttribute="height" constant="44" type="user" id="Y2z-Iz-PJy"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem title="Library" id="qZV-5T-FBA">
@@ -332,10 +336,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AQ4-Bj-xqS" firstAttribute="top" secondItem="RFY-W2-QTC" secondAttribute="top" type="default" id="07f-qs-IjZ"/>
+                            <constraint firstItem="AQ4-Bj-xqS" firstAttribute="top" secondItem="RFY-W2-QTC" secondAttribute="top" type="user" id="07f-qs-IjZ"/>
                             <constraint firstItem="Hcq-5e-gX2" firstAttribute="trailing" secondItem="RFY-W2-QTC" secondAttribute="trailing" type="default" id="Bxh-Pe-uyU"/>
-                            <constraint firstItem="Hcq-5e-gX2" firstAttribute="bottom" secondItem="RFY-W2-QTC" secondAttribute="bottom" type="default" id="IPz-Yi-vCa"/>
-                            <constraint firstItem="Hcq-5e-gX2" firstAttribute="top" secondItem="AQ4-Bj-xqS" secondAttribute="bottom" type="default" id="O6z-th-7ON"/>
+                            <constraint firstItem="Hcq-5e-gX2" firstAttribute="bottom" secondItem="RFY-W2-QTC" secondAttribute="bottom" type="user" id="IPz-Yi-vCa"/>
+                            <constraint firstItem="Hcq-5e-gX2" firstAttribute="top" secondItem="AQ4-Bj-xqS" secondAttribute="bottom" type="user" id="O6z-th-7ON"/>
                             <constraint firstItem="Hcq-5e-gX2" firstAttribute="leading" secondItem="RFY-W2-QTC" secondAttribute="leading" type="default" id="S6v-Jz-FJJ"/>
                             <constraint firstItem="AQ4-Bj-xqS" firstAttribute="trailing" secondItem="RFY-W2-QTC" secondAttribute="trailing" type="default" id="U6M-zg-LNt"/>
                             <constraint firstItem="AQ4-Bj-xqS" firstAttribute="leading" secondItem="RFY-W2-QTC" secondAttribute="leading" type="default" id="bf6-fe-kAh"/>
@@ -487,8 +491,6 @@
         <class className="PreviewViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PreviewViewController.h"/>
             <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="saveInformation:"/>
                 <relationship kind="outlet" name="descriptionField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="previewView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="saveButton" candidateClass="UIBarButtonItem"/>
