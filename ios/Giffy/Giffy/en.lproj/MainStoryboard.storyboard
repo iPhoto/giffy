@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="NjZ-SO-csy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Jt8-2V-L1R">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -322,8 +322,7 @@
                                 <items>
                                     <barButtonItem title="Library" id="qZV-5T-FBA">
                                         <connections>
-                                            <action selector="imageLibraryAction:" destination="moR-Fv-XDo" id="i3i-TV-uYm"/>
-                                            <segue destination="Jt8-2V-L1R" kind="push" id="nYU-fw-fon"/>
+                                            <segue destination="Jt8-2V-L1R" kind="push" identifier="Open Gallery" id="nYU-fw-fon"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="5Lf-Qe-yl1"/>
@@ -459,7 +458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oo1-zO-U5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913" y="-200"/>
+            <point key="canvasLocation" x="1003" y="-204"/>
         </scene>
         <!--GalleryTVC - Gallery-->
         <scene sceneID="LVm-Bj-zCD">
@@ -491,7 +490,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="moR-Fv-XDo" kind="push" identifier="Show Gif" id="fIh-Ez-Fv2"/>
+                                    <segue destination="moR-Fv-XDo" kind="push" identifier="Show Gif" id="svR-Qj-VII"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -510,56 +509,12 @@
     <resources>
         <image name="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" width="640" height="960"/>
     </resources>
-    <classes>
-        <class className="EntryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/EntryViewController.h"/>
-        </class>
-        <class className="GiffyViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GiffyViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cameraAction:"/>
-                <relationship kind="action" name="imageLibraryAction:"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PreviewViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreviewViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="descriptionField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="previewView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="saveButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="waitIndicator" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="RegisterViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="confirmPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fIh-Ez-Fv2"/>
+        <segue reference="svR-Qj-VII"/>
     </inferredMetricsTieBreakers>
 </document>

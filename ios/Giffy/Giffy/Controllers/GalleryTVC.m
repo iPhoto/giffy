@@ -23,9 +23,10 @@
 
 - (NSArray *)gifManagers {
     if (!_gifManagers) {
-        _gifManagers = [self.repo getCompletedGifManagers];
+        dispatch_queue_t queue = dispatch_queue_create("RefreshGifManagerQueue", NULL);
+        dispatch_sync(queue, ^{ _gifManagers = [self.repo getCompletedGifManagers]; });
+        [self.tableView reloadData];
     }
-    [self.tableView reloadData];
     return _gifManagers;
 }
 
@@ -59,8 +60,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    [self.gifManagers count];
-    return 0;
+    return [self.gifManagers count];
 }
 
 - (NSString *)titleForRow:(NSUInteger)row {
@@ -72,7 +72,8 @@
 }
 
 - (UIImage *)thumbnailForRow:(NSUInteger)row {
-    UIImage *image = [UIImage imageWithData:[self.gifManagers[row] thumbnail]];
+    NSData *thumbImage = [[self.gifManagers objectAtIndex:row] preview];
+    UIImage *image = [UIImage imageWithData:thumbImage];
     return image;
 }
 
