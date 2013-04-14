@@ -23,6 +23,7 @@
 #define kGifController_BuilderId_Parameter @"builderID"
 
 #define kLoginController_Name @"login"
+#define kRegisterController_Name @"register"
 
 #define kAuthentication_UserName_Key @"UserName"
 #define kAuthentication_Token_Key @"Token"
@@ -38,6 +39,10 @@
 #define kGifContainer_Thumbnail_Key @"Thumbnail"
 
 #define kModel_ID_Key @"ID"
+
+#define kRegisterModel_ConfirmPassword_Key @"ConfirmPassword"
+#define kRegisterModel_Password_Key @"Password"
+#define kRegisterModel_UserName_Key @"UserName"
 
 #define kUserCredentials_Password_Key @"Password"
 #define kUserCredentials_UserName_Key @"UserName"

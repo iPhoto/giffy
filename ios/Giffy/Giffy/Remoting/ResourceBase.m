@@ -72,7 +72,7 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
     [request addValue:@"application/json" forHTTPHeaderField: @"Content-Type"];
     
-    if(![controller isEqualToString:kLoginController_Name])
+    if(![controller isEqualToString:kLoginController_Name] && ![controller isEqualToString:kRegisterController_Name])
     {
         GiffyAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         if(![appDelegate.authenticationResource addCredentialsInRequest:request])

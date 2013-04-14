@@ -104,6 +104,35 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCredentials];
 }
 
+-(BOOL)registerUser:(RegisterModel*)registerModel
+{
+    if(self.currentCredentials)
+        self.currentCredentials = nil;
+    
+    NSDictionary *values = @{kRegisterModel_UserName_Key : registerModel.userName,
+                             kRegisterModel_Password_Key : registerModel.password,
+                             kRegisterModel_ConfirmPassword_Key : registerModel.confirmPassword};
+    
+    Response* response =  [self makeRequestFromController:kRegisterController_Name
+                                                    type:RequestTypePost
+                                                  values:values];
+    
+    if (!response.success)
+    {
+        NSLog(@"Registration was not successful: %@", response.message);
+        return NO;
+    }
+    
+    BOOL result = [AuthenticationResource boolFromResponse:response];
+    if(!result)
+        return NO;
+    
+    NSLog(@"Registration was successful");
+    
+    UserCredentials* credentials = [[UserCredentials alloc] initWithUserName:registerModel.userName AndPassword:registerModel.password];
+    return [self loginWithCredentials:credentials];
+}
+
 -(void)storeCredentials
 {
     if (!self.currentCredentials)

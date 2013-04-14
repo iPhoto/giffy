@@ -168,12 +168,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WvC-ST-cxr" firstAttribute="top" secondItem="ztF-it-V7v" secondAttribute="top" type="default" id="2jB-xU-D5D"/>
+                            <constraint firstItem="6yA-zb-B9u" firstAttribute="trailing" secondItem="WvC-ST-cxr" secondAttribute="trailing" type="default" id="FLB-qu-v8G"/>
                             <constraint firstAttribute="bottom" secondItem="6yA-zb-B9u" secondAttribute="bottom" constant="128" id="Mc6-f5-0lG"/>
+                            <constraint firstItem="6yA-zb-B9u" firstAttribute="centerX" secondItem="ztF-it-V7v" secondAttribute="centerX" type="default" id="P6f-Dw-Hmu"/>
                             <constraint firstItem="WvC-ST-cxr" firstAttribute="leading" secondItem="ztF-it-V7v" secondAttribute="leading" type="default" id="RYE-bt-ED9"/>
-                            <constraint firstItem="WvC-ST-cxr" firstAttribute="trailing" secondItem="ztF-it-V7v" secondAttribute="trailing" type="default" id="Rri-za-yeM"/>
                             <constraint firstAttribute="bottom" secondItem="KZV-jb-8zW" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="dcS-RW-5sM"/>
                             <constraint firstItem="6yA-zb-B9u" firstAttribute="centerX" secondItem="KZV-jb-8zW" secondAttribute="centerX" type="default" id="hPy-4R-Nkb"/>
-                            <constraint firstItem="6yA-zb-B9u" firstAttribute="trailing" secondItem="ztF-it-V7v" secondAttribute="trailing" type="default" id="hm6-uk-3Ww"/>
                             <constraint firstItem="WvC-ST-cxr" firstAttribute="bottom" secondItem="ztF-it-V7v" secondAttribute="bottom" type="default" id="q0h-tA-u8Y"/>
                             <constraint firstItem="6yA-zb-B9u" firstAttribute="top" secondItem="ztF-it-V7v" secondAttribute="top" type="default" id="vyE-Ee-b7v"/>
                             <constraint firstItem="6yA-zb-B9u" firstAttribute="leading" secondItem="ztF-it-V7v" secondAttribute="leading" type="default" id="yrX-7F-NPv"/>
