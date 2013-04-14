@@ -12,10 +12,10 @@
 @interface GifResouce : ResourceBase
 
 -(BOOL)add:(GifComponent*)component;
--(BOOL)addName:(NSString*)name description:(NSString*) description;
+-(BOOL)addName:(NSString*)name description:(NSString*) description toContainer:(int)containerId;
 -(GifContainer*)finish:(BuilderId*)builderId;
 -(NSArray*)get; // Returns an array of GifContainer
--(GifContainer*)get:(BuilderId*)builderId;
+-(GifContainer*)get:(int)containerId;
 -(BuilderId*)start;
 
 @end

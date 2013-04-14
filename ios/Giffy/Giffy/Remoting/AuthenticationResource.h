@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import "RegisterModel.h"
 #import "ResourceBase.h"
 #import "UserCredentials.h"
 
@@ -30,5 +32,6 @@
 -(BOOL)hasStoredCredentials;
 -(BOOL)loginWithCredentials:(UserCredentials*)credentials;
 -(void)logout;
+-(BOOL)registerUser:(RegisterModel*)registerModel;
 
 @end

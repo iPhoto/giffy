@@ -18,9 +18,12 @@
 #define kGifController_AddDescription_Action @"addDescription"
 #define kGifController_Finish_Action @"finish"
 #define kGifController_Start_Action @"start"
-#define kGifController_BuilderId_Parameter @"builderId"
+
+#define kGifController_Id_Parameter @"id"
+#define kGifController_BuilderId_Parameter @"builderID"
 
 #define kLoginController_Name @"login"
+#define kRegisterController_Name @"register"
 
 #define kAuthentication_UserName_Key @"UserName"
 #define kAuthentication_Token_Key @"Token"
@@ -31,8 +34,15 @@
 
 #define kGifContainer_Description_Key @"Description"
 #define kGifContainer_Gif_Key @"Gif"
+#define kGifController_GifContainerID_Key @"GifContainerID"
 #define kGifContainer_Name_Key @"Name"
 #define kGifContainer_Thumbnail_Key @"Thumbnail"
+
+#define kModel_ID_Key @"ID"
+
+#define kRegisterModel_ConfirmPassword_Key @"ConfirmPassword"
+#define kRegisterModel_Password_Key @"Password"
+#define kRegisterModel_UserName_Key @"UserName"
 
 #define kUserCredentials_Password_Key @"Password"
 #define kUserCredentials_UserName_Key @"UserName"
@@ -61,6 +71,7 @@ typedef CF_ENUM(int, RequestType) {
                                values:(NSDictionary*) values;
 
 
++(NSArray*)arrayOfGifContainersFromResponse:(Response*)response;
 +(Authentication*)authenticationFromResponse:(Response*)response;
 +(BOOL)boolFromResponse:(Response*)response;
 +(BuilderId*)builderIdFromResponse:(Response*)response;
