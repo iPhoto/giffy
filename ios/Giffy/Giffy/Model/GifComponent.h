@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BuilderId.h"
 
 @interface GifComponent : NSObject
 
+@property (nonatomic) BuilderId* builderId;
 @property (strong, nonatomic) NSData* imageData;
 @property (nonatomic) NSUInteger order;
 

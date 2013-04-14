@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using Giffy.Filters;
 using Giffy.Models;
 using Giffy.Utilities;
 
 namespace Giffy.Controllers.Api.Test
 {
-    [Authorize]
-    public class TestController : ApiController
+    public class TestController : AuthorizedApiController
     {
-        public ApiResult Get(string name)
+        [ActionName("Default")]
+        public ApiResult<List<Test>> Get(string name)
         {
             var userName = this.User.Identity.Name;
 

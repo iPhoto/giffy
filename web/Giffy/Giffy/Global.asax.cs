@@ -34,12 +34,13 @@ namespace Giffy
         private void InitializeDatabase()
         {
             Database.SetInitializer<ModelContext>(new ModelDatabaseInitializer());
-            Database.SetInitializer<UsersContext>(new DropCreateDatabaseIfModelChanges<UsersContext>());
+            Database.SetInitializer<UsersContext>(new CreateDatabaseIfNotExists<UsersContext>());
+            new ModelContext().Authentications.ToList();
         }
 
         private void SetJsonFormatter()
         {
-            GlobalConfiguration.Configuration.Formatters.Clear();
+            GlobalConfiguration.Configuration.Formatters.Add(new XmlMediaTypeFormatter());
             GlobalConfiguration.Configuration.Formatters.Add(new JsonMediaTypeFormatter());
         }
     }

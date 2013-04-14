@@ -9,6 +9,8 @@
 #import "ResourceBase.h"
 #import "GiffyAppDelegate.h"
 #import "Authentication.h"
+#import "Base64.h"
+#import "BuilderId.h"
 
 #define kBaseUrl @"http://giffy.azurewebsites.net/api/" // TODO Move to config file
 
@@ -18,18 +20,20 @@
 
 @interface ResourceBase()
 
-@property (strong, nonatomic) NSSet* controllerUsingQueryString;
+@property (strong, nonatomic) NSSet* urlsUsingQueryString;
 
 @end
 
 @implementation ResourceBase
 
--(NSSet*)controllerUsingQueryString
+-(NSSet*)urlsUsingQueryString
 {
-    if (!_controllerUsingQueryString)
-        _controllerUsingQueryString = [[NSSet alloc] initWithArray:@[]];
+    if (!_urlsUsingQueryString)
+        _urlsUsingQueryString = [[NSSet alloc] initWithArray:@[
+                                 [NSString stringWithFormat:@"%@%@/%@", kBaseUrl, kGifController_Name, kGifController_Finish_Action]
+                                 ]];
     
-    return _controllerUsingQueryString;
+    return _urlsUsingQueryString;
 }
 
 -(Response*)makeRequestFromController:(NSString *)controller type:(RequestType)requestType values:(NSDictionary *)values
@@ -40,6 +44,29 @@
 -(Response*)makeRequestFromController:(NSString *)controller type:(RequestType)requestType action:(NSString *)action values:(NSDictionary *)values
 {
     NSString* urlString = [NSString stringWithFormat:@"%@%@", kBaseUrl, controller];
+    
+    if (action)
+        urlString = [urlString stringByAppendingFormat:@"/%@", action];
+    
+    BOOL shouldUseQueryString = [self.urlsUsingQueryString containsObject:urlString];
+    if(shouldUseQueryString)
+    {
+        NSString *queryParameters = @"?";
+        
+        BOOL didAddFirstParameter = NO;
+        for (NSString *key in values)
+        {
+            if (didAddFirstParameter)
+                queryParameters = [queryParameters stringByAppendingString:@"&"];
+            
+            id value = values[key];
+            queryParameters = [queryParameters stringByAppendingFormat:@"%@=%@", key, value]; // TODO: escape strings
+            
+            didAddFirstParameter = YES;
+        }
+        
+        urlString = [urlString stringByAppendingString:queryParameters];
+    }
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
     [request addValue:@"application/json" forHTTPHeaderField: @"Content-Type"];
@@ -70,11 +97,7 @@
             break;
     }
     
-    if([self.controllerUsingQueryString containsObject:controller])
-    {
-        // TODO
-    }
-    else
+    if(values && !shouldUseQueryString)
     {
         NSError *jsonSerializationError = nil;
         NSData* data = [NSJSONSerialization dataWithJSONObject:values
@@ -109,7 +132,7 @@
     id data = [resultsDictionary valueForKey:kResultDataKey];
     NSString* message = [resultsDictionary valueForKey:kResultMessageKey];
     
-    if(!success)
+    if (!success)
     {
         NSAssert(message, @"There was no error message from the server.");
         return [[Response alloc] initWithMessage:message];
@@ -150,39 +173,35 @@
     return [boolNumber boolValue];
 }
 
++(BuilderId*)builderIdFromResponse:(Response*)response
+{
+    if(![response.data isKindOfClass:[NSNumber class]])
+    {
+        NSLog(@"Unexpected data object type.");
+        return NO;
+    }
+    
+    NSNumber *intNumber = (NSNumber*)response.data;
+    return [[BuilderId alloc] initWithId:[intNumber intValue]];
+}
+
 +(GifContainer*)gifContainerFromResponse:(Response*)response
 {
-    if(![response.data isKindOfClass:[NSArray class]])
+    if (![response.data isKindOfClass:[NSDictionary class]])
     {
         NSLog(@"Unexpected data object type.");
         return nil;
     }
     
-    NSArray *dataArray = (NSArray*)response.data;
-    
-    NSUInteger count = [dataArray count];
-    NSAssert(count == 1, @"The gif container response should have one data result.");
-    
-    if (count == 0)
-    {
-        NSLog(@"No login data returned");
-        return nil;
-    }
-    
-    id data = dataArray[0];
-    if (![data isKindOfClass:[NSDictionary class]])
-    {
-        NSLog(@"The gif container response data is not in the correct format.");
-        return nil;
-    }
-    
-    NSDictionary* dataDictionary = (NSDictionary*)data;
+    NSDictionary* dataDictionary = (NSDictionary*)response.data;
     
     GifContainer* container = [[GifContainer alloc] init];
-    container.gif = dataDictionary[kGifContainer_Gif_Key];
+    
+    container.gif = [Base64 dataForBase64:dataDictionary[kGifContainer_Gif_Key]];
     container.gifDescription = dataDictionary[kGifContainer_Description_Key];
     container.name = dataDictionary[kGifContainer_Name_Key];
-    container.thumbnail = dataDictionary[kGifContainer_Thumbnail_Key];
+    container.thumbnail = [Base64 dataForBase64:dataDictionary[kGifContainer_Thumbnail_Key]];
+    
     return container;
 }
 

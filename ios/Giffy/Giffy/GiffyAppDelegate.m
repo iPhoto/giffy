@@ -7,7 +7,9 @@
 //
 
 #import "GiffyAppDelegate.h"
+
 #import "AuthenticationResource.h"
+#import "GifResouce.h"
 
 @interface GiffyAppDelegate() <AuthenticationResourceDelegate>
 @end
@@ -34,6 +36,28 @@
 //        if(!success)
 //        {
 //            // TODO
+//        }
+//        else
+//        {
+//            GifResouce* resource = [[GifResouce alloc] init];
+//            BuilderId* builderId = [resource start];
+//            if(builderId)
+//            {
+//                GifComponent *component = [[GifComponent alloc] init];
+//                component.builderId = builderId;
+//                component.imageData = [@"Hello" dataUsingEncoding:NSUTF8StringEncoding]; // TODO: Use real data
+//                component.order = 1;
+//                BOOL didAdd = [resource add:component];
+//                if (didAdd)
+//                {
+//                }
+//                
+//                GifContainer *container = [resource finish:builderId];
+//                if (container)
+//                {
+//                    
+//                }
+//            }
 //        }
 //    });
 
