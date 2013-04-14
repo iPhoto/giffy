@@ -11,6 +11,7 @@ namespace Giffy.Models.Gifs
         #region Properties
 
         public virtual byte[] Thumbnail { get; set; }
+        public virtual byte[] Preview { get; set; }
         public virtual byte[] Gif { get; set; }
 
         #endregion //Properties

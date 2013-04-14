@@ -40,7 +40,8 @@ namespace Giffy.Models.Gifs
 
             return new GifContainer
             {
-                Thumbnail = images.First(),
+                Thumbnail = imageBuilder.BuildThumbnail(),
+                Preview = imageBuilder.BuildPreview(),
                 Gif = imageBuilder.BuildGif(),
             };
         }
