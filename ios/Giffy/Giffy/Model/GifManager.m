@@ -196,7 +196,7 @@
         self.preview = [UIImage imageWithData:container.preview];
     
     if (container.gif)
-        self.gif = [UIImage imageWithData:container.gif];
+        self.gif = [UIImage animatedImageWithAnimatedGIFData:container.gif];
     
     // If the name was already set by the user, don't overwrite it with the initial value from the server.
     if (!self.name && container.name)

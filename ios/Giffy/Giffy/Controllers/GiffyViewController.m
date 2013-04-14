@@ -94,7 +94,7 @@
         }
         else
         {
-            GifManager *manager = [[GifManager alloc] initWithDelegate:nil];
+            GifManager *manager = [[GifManager alloc] initWithDelegate:self];
             for (UIImage *cameraImage in self.capturedImages) {
                                 [manager addImage:cameraImage];
             }

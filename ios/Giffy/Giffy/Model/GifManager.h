@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "GifContainer.h"
+#import "UIImage+animatedGIF.h"
 
 @class GifManager;
 

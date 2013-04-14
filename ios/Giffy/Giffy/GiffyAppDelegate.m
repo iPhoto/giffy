@@ -37,8 +37,7 @@
         
         GifManager *manager = [managers objectAtIndex:0];
         manager.name = @"Test update";
-        [manager update];
-    });
+    [manager update];
 
     // Override point for customization after application launch.
     return YES;
