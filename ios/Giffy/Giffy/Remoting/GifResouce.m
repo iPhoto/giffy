@@ -34,9 +34,15 @@
 
 -(BOOL)addName:(NSString *)name description:(NSString *)description toContainer:(ContainerId *)containerId
 {
+    if (!name)
+        name = @"";
+    
+    if (!description)
+        description = @"";
+    
     NSDictionary *values = @{kGifController_GifContainerID_Key : @(containerId.idValue),
                              kGifContainer_Name_Key : name,
-                             kGifContainer_Description_Key: description};
+                             kGifContainer_Description_Key : description};
     
     Response *response = [self makeRequestFromController:kGifController_Name
                                                     type:RequestTypePost
