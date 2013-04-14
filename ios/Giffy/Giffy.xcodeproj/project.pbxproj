@@ -48,6 +48,13 @@
 		75843474171A11E0007C496F /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843473171A11E0007C496F /* EntryViewController.m */; };
 		75843477171A11F8007C496F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843476171A11F8007C496F /* LoginViewController.m */; };
 		7584347A171A224A007C496F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843479171A224A007C496F /* RegisterViewController.m */; };
+		7584347D171B0680007C496F /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584347C171B0680007C496F /* UIImage+Resize.m */; };
+		75843480171B0748007C496F /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584347F171B0748007C496F /* UIImage+animatedGIF.m */; };
+		75843482171B0777007C496F /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75843481171B0777007C496F /* ImageIO.framework */; };
+		75843487171B0A29007C496F /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843484171B0A29007C496F /* UIImage+Alpha.m */; };
+		75843488171B0A29007C496F /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843484171B0A29007C496F /* UIImage+Alpha.m */; };
+		75843489171B0A29007C496F /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843486171B0A29007C496F /* UIImage+RoundedCorner.m */; };
+		7584348A171B0A29007C496F /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843486171B0A29007C496F /* UIImage+RoundedCorner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +131,15 @@
 		75843476171A11F8007C496F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
 		75843478171A224A007C496F /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Controllers/RegisterViewController.h; sourceTree = "<group>"; };
 		75843479171A224A007C496F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Controllers/RegisterViewController.m; sourceTree = "<group>"; };
+		7584347B171B0680007C496F /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		7584347C171B0680007C496F /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		7584347E171B0748007C496F /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
+		7584347F171B0748007C496F /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		75843481171B0777007C496F /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		75843483171B0A29007C496F /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		75843484171B0A29007C496F /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		75843485171B0A29007C496F /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		75843486171B0A29007C496F /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75843482171B0777007C496F /* ImageIO.framework in Frameworks */,
 				758434631719CB76007C496F /* AudioToolbox.framework in Frameworks */,
 				758433CE1719015C007C496F /* UIKit.framework in Frameworks */,
 				758433D01719015C007C496F /* Foundation.framework in Frameworks */,
@@ -199,6 +216,7 @@
 		758433C11719015C007C496F = {
 			isa = PBXGroup;
 			children = (
+				75843481171B0777007C496F /* ImageIO.framework */,
 				758433D31719015C007C496F /* Giffy */,
 				758433F71719015C007C496F /* GiffyTests */,
 				758433CC1719015C007C496F /* Frameworks */,
@@ -246,6 +264,14 @@
 		758433D41719015C007C496F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				75843483171B0A29007C496F /* UIImage+Alpha.h */,
+				75843484171B0A29007C496F /* UIImage+Alpha.m */,
+				75843485171B0A29007C496F /* UIImage+RoundedCorner.h */,
+				75843486171B0A29007C496F /* UIImage+RoundedCorner.m */,
+				7584347E171B0748007C496F /* UIImage+animatedGIF.h */,
+				7584347F171B0748007C496F /* UIImage+animatedGIF.m */,
+				7584347B171B0680007C496F /* UIImage+Resize.h */,
+				7584347C171B0680007C496F /* UIImage+Resize.m */,
 				75843470171A0236007C496F /* Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg */,
 				7584346E171A01C5007C496F /* iPhone-5-Gradient-Background-05.jpg */,
 				758434641719D1C0007C496F /* tick.aiff */,
@@ -438,6 +464,10 @@
 				171D7339171A45320098AD05 /* Base64.m in Sources */,
 				171D733C171A54040098AD05 /* Model.m in Sources */,
 				171D733F171A65100098AD05 /* RegisterModel.m in Sources */,
+				7584347D171B0680007C496F /* UIImage+Resize.m in Sources */,
+				75843480171B0748007C496F /* UIImage+animatedGIF.m in Sources */,
+				75843487171B0A29007C496F /* UIImage+Alpha.m in Sources */,
+				75843489171B0A29007C496F /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +476,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				758433FF1719015C007C496F /* GiffyTests.m in Sources */,
+				75843488171B0A29007C496F /* UIImage+Alpha.m in Sources */,
+				7584348A171B0A29007C496F /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

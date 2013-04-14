@@ -10,7 +10,7 @@
 
 @interface OverlayViewController ()
 
-@property (nonatomic) SystemSoundID tickSound;
+//@property (nonatomic) SystemSoundID tickSound;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *takePictureButton;
@@ -33,10 +33,10 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:
-                                                    [[NSBundle mainBundle] pathForResource:@"tick"
-                                                                                    ofType:@"aiff"]],
-                                         &_tickSound);
+//        AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:
+//                                                    [[NSBundle mainBundle] pathForResource:@"tick"
+//                                                                                    ofType:@"aiff"]],
+//                                         &_tickSound);
         self.imagePickerController = [[UIImagePickerController alloc] init];
         self.imagePickerController.delegate = self;
     }
@@ -94,7 +94,7 @@
     }
 }
 
-#define PHOTOS_PER_GIF 10
+#define PHOTOS_PER_GIF 15
 
 - (void)timedPhotoFire:(NSTimer *)timer {
     if (_photoCount < PHOTOS_PER_GIF) {
@@ -108,7 +108,7 @@
 }
 
 - (void)tickFire:(NSTimer *)timer {
-    AudioServicesPlaySystemSound(self.tickSound);
+    //AudioServicesPlaySystemSound(self.tickSound);
 }
 
 - (void)stopTimer {
@@ -128,7 +128,7 @@
         
         _photoCount = 0;
         
-        _cameraTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timedPhotoFire:) userInfo:nil repeats:YES];
+        _cameraTimer = [NSTimer scheduledTimerWithTimeInterval:0.3 target:self selector:@selector(timedPhotoFire:) userInfo:nil repeats:YES];
         [self.cameraTimer fire];
     } else {
        [self stopTimer]; 
@@ -154,11 +154,13 @@ UIImage* resizeImage(UIImage *image)
             actualWidth = 320.0;
         }
     }
-    CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
-    UIGraphicsBeginImageContext(rect.size);
-    [image drawInRect:rect];
-    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    //CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
+    //UIGraphicsBeginImageContext(rect.size);
+    //[image drawInRect:rect];
+    //UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    //UIGraphicsEndImageContext();
+    CGSize imageSize = CGSizeMake(actualWidth, actualHeight);
+    UIImage *resizedImage = [image resizedImage:imageSize interpolationQuality:kCGInterpolationHigh];
     return resizedImage;
 }
 
