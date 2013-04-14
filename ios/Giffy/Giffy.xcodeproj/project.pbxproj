@@ -19,6 +19,7 @@
 		171D7339171A45320098AD05 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D7338171A45320098AD05 /* Base64.m */; };
 		171D733C171A54040098AD05 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D733B171A54030098AD05 /* Model.m */; };
 		171D733F171A65100098AD05 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D733E171A65100098AD05 /* RegisterModel.m */; };
+		17B4CEDA171B325F0089C792 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B4CED9171B325F0089C792 /* PreviewViewController.m */; };
 		17C3AC64171AFD56006E0712 /* GifManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C3AC63171AFD56006E0712 /* GifManager.m */; };
 		17C3AC67171B0827006E0712 /* ContainerId.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C3AC66171B0827006E0712 /* ContainerId.m */; };
 		17C3AC6C171B2636006E0712 /* GifRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C3AC6B171B2636006E0712 /* GifRepository.m */; };
@@ -99,6 +100,8 @@
 		171D733B171A54030098AD05 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = Model/Model.m; sourceTree = "<group>"; };
 		171D733D171A65100098AD05 /* RegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterModel.h; path = Model/RegisterModel.h; sourceTree = "<group>"; };
 		171D733E171A65100098AD05 /* RegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterModel.m; path = Model/RegisterModel.m; sourceTree = "<group>"; };
+		17B4CED8171B325F0089C792 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewViewController.h; path = Controllers/PreviewViewController.h; sourceTree = "<group>"; };
+		17B4CED9171B325F0089C792 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewViewController.m; path = Controllers/PreviewViewController.m; sourceTree = "<group>"; };
 		17C3AC62171AFD56006E0712 /* GifManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GifManager.h; path = Model/GifManager.h; sourceTree = "<group>"; };
 		17C3AC63171AFD56006E0712 /* GifManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GifManager.m; path = Model/GifManager.m; sourceTree = "<group>"; };
 		17C3AC65171B0827006E0712 /* ContainerId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerId.h; path = Model/ContainerId.h; sourceTree = "<group>"; };
@@ -270,10 +273,10 @@
 		758433D31719015C007C496F /* Giffy */ = {
 			isa = PBXGroup;
 			children = (
-				171D7336171A45170098AD05 /* Utilities */,
 				7584340B171909BB007C496F /* Controllers */,
 				171D73201719F3A70098AD05 /* Model */,
 				171D73191719EEFE0098AD05 /* Remoting */,
+				171D7336171A45170098AD05 /* Utilities */,
 				758433DC1719015C007C496F /* GiffyAppDelegate.h */,
 				758433DD1719015C007C496F /* GiffyAppDelegate.m */,
 				75843496171B2BDD007C496F /* OverlayViewController.xib */,
@@ -345,6 +348,8 @@
 				75843476171A11F8007C496F /* LoginViewController.m */,
 				7584341117198FEE007C496F /* GiffyViewController.h */,
 				7584341217198FEE007C496F /* GiffyViewController.m */,
+				17B4CED8171B325F0089C792 /* PreviewViewController.h */,
+				17B4CED9171B325F0089C792 /* PreviewViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				17C3AC64171AFD56006E0712 /* GifManager.m in Sources */,
 				17C3AC67171B0827006E0712 /* ContainerId.m in Sources */,
 				17C3AC6C171B2636006E0712 /* GifRepository.m in Sources */,
+				17B4CEDA171B325F0089C792 /* PreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

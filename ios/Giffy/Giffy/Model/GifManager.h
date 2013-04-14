@@ -14,10 +14,8 @@
 
 @protocol GifManagerDelegate <NSObject>
 
-@required
--(void)gifManagerDidFinishCreatingGif:(GifManager *)manager;
-
 @optional
+-(void)gifManagerDidFinishCreatingGif:(GifManager *)manager;
 -(void)gifManager:(GifManager *)manager didFinishUploadingImageIndex:(int)imageIndex of:(int)imageCount;
 -(void)gifManager:(GifManager *)manager didReceiveError:(NSString*)errorMessage;
 -(void)gifManagerDidFinishUpdating:(GifManager *)manager;

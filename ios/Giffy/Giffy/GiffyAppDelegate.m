@@ -31,14 +31,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-        GifRepository *repository = [[GifRepository alloc] init];
-        
-        NSArray *managers = [repository getCompletedGifManagers];
-        
-        GifManager *manager = [managers objectAtIndex:0];
-        manager.name = @"Test update";
-        [manager update];
-    });
+//        GifRepository *repository = [[GifRepository alloc] init];
+//        
+//        NSArray *managers = [repository getCompletedGifManagers];
+//        
+//        GifManager *manager = [managers objectAtIndex:0];
+//        manager.name = @"Test update";
+//        [manager update];
 
     // Override point for customization after application launch.
     return YES;
