@@ -7,15 +7,20 @@
 //
 
 #import "GifResouce.h"
+#import "Base64.h"
 
 @implementation GifResouce
 
 -(BOOL)add:(GifComponent*)component
 {
+    NSDictionary *values = @{kGifComponent_BuilderId_Key : @(component.builderId.idValue),
+                             kGifComponent_Image_Key : [Base64 base64forData:component.imageData],
+                             kGifComponent_Order_Key: @(component.order)};
+    
     Response* response = [self makeRequestFromController:kGifController_Name
                                                 type:RequestTypePost
                                               action:kGifController_Add_Action
-                                                  values:@{kGifComponent_Image_Key : component.imageData, kGifComponent_Order_Key: @(component.order)}];
+                                                  values:values];
     
     if (!response.success)
     {
@@ -47,7 +52,7 @@
     Response* response = [self makeRequestFromController:kGifController_Name
                                                     type:RequestTypePost
                                                   action:kGifController_Finish_Action
-                                                  values:@{kGifController_BuilderId_Parameter : builderId.idValue}];
+                                                  values:@{kGifController_BuilderId_Parameter : @(builderId.idValue)}];
     
     if (!response.success)
     {
@@ -60,6 +65,21 @@
 
 //-(NSArray*)get; // Returns an array of GifContainer
 //-(GifContainer*)get:(BuilderId*)builderId;
-//-(BuilderId*)start;
+
+-(BuilderId*)start
+{
+    Response* response = [self makeRequestFromController:kGifController_Name
+                                                    type:RequestTypePost
+                                                  action:kGifController_Start_Action
+                                                  values:nil];
+    
+    if (!response.success)
+    {
+        NSLog(@"gif/start was not successful: %@", response.message);
+        return NO;
+    }
+    
+    return [GifResouce builderIdFromResponse:response];
+}
 
 @end

@@ -22,7 +22,7 @@
         return NO;
     
     [request addValue:self.currentCredentials.userName forHTTPHeaderField: kLoginRequestUserNameKey];
-    [request addValue:self.currentCredentials.authenticationToken forHTTPHeaderField: kLoginRequestUserNameKey];
+    [request addValue:self.currentCredentials.authenticationToken forHTTPHeaderField: kLoginRequestAuthenticationTokenKey];
     return YES;
 }
 

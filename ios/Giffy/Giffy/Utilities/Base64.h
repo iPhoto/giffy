@@ -1,5 +1,5 @@
 //
-//  BuilderId.h
+//  Base64.h
 //  Giffy
 //
 //  Created by Michael Dour on 4/13/13.
@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BuilderId : NSObject
+@interface Base64 : NSObject
 
-@property (readonly, nonatomic) int idValue;
-
--(id)initWithId:(int)idValue;
++(NSString*)base64forData:(NSData*)theData;
++(NSData*)dataForBase64:(NSString*)base64;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation BuilderId
 
--(id)initWithId:(NSString *)idValue
+-(id)initWithId:(int)idValue
 {
     self = [super init];
     if (self)
