@@ -73,9 +73,9 @@ namespace Giffy.Controllers.Api.Gif
         }
 
         [HttpPost]
-        public ApiResult<bool> Add(GifComponent component)
+        public ApiResult<bool> Add(GifComponentTransport component)
         {
-            this.GifModule.AddToBuild(component);
+            this.GifModule.AddToBuild(component.ToGifComponent());
             return Success(true);
         }
 
@@ -87,9 +87,13 @@ namespace Giffy.Controllers.Api.Gif
         }
 
         [HttpPost]
-        public ApiResult<bool> AddDescription(int id, string name, string description)
+        public ApiResult<bool> AddDescription(GifContainerDescription description)
         {
-            this.GifModule.AddDescription(id, name, description);
+            this.GifModule.AddDescription(
+                description.GifContainerID, 
+                description.Name, 
+                description.Description);
+
             return Success<bool>(true);
         }
 

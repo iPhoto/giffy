@@ -26,9 +26,16 @@ namespace Giffy.Models.Gifs
 
         #region IDescribableMembers
 
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public virtual string Name { get; set; }
+        public virtual string Description { get; set; }
 
         #endregion //IDescribableMembers
+    }
+
+    public class GifContainerDescription
+    {
+        public int GifContainerID { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

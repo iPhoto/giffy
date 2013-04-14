@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Giffy.Models.Interfaces;
+using Giffy.Utilities;
 
 namespace Giffy.Models.Gifs
 {
@@ -27,10 +28,20 @@ namespace Giffy.Models.Gifs
 
         public GifContainer Build()
         {
+            var images =
+                (from component in this.Components
+                 orderby component.Order
+                 select component.Image)
+                .ToList();
+
+            var imageBuilder =
+                new GifImageBuilder()
+                .AddImages(images);
+
             return new GifContainer
             {
-                Thumbnail = new byte[] { 1, 2, 3, 2, 255, 180, 121, 83, 2, 12, 21 },
-                Gif = new byte[] { 4, 5, 6, 77, 81, 131, 12, 67, 155 }
+                Thumbnail = images.First(),
+                Gif = imageBuilder.BuildGif(),
             };
         }
 

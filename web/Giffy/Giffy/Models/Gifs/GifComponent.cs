@@ -29,4 +29,21 @@ namespace Giffy.Models.Gifs
 
         #endregion //ITrackable Members
     }
+
+    public class GifComponentTransport
+    {
+        public virtual int BuilderID { get; set; }
+        public virtual string Image { get; set; }
+        public virtual int Order { get; set; }
+
+        public GifComponent ToGifComponent()
+        {
+            return new GifComponent
+            {
+                BuilderID = this.BuilderID,
+                Image = Convert.FromBase64String(this.Image),
+                Order = this.Order
+            };
+        }
+    }
 }

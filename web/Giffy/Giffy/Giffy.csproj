@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -218,6 +219,11 @@
     <Compile Include="Utilities\AccountErrors.cs" />
     <Compile Include="Utilities\Device.cs" />
     <Compile Include="Utilities\DeviceDetector.cs" />
+    <Compile Include="Utilities\GifEncoding\AnimatedGifEncoder.cs" />
+    <Compile Include="Utilities\GifImageBuilder.cs" />
+    <Compile Include="Utilities\GifEncoding\GifDecoder.cs" />
+    <Compile Include="Utilities\GifEncoding\LZWEncoder.cs" />
+    <Compile Include="Utilities\GifEncoding\NeuQuant.cs" />
     <Compile Include="Utilities\RequestData.cs" />
   </ItemGroup>
   <ItemGroup>

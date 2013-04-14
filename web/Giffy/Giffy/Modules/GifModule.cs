@@ -42,6 +42,8 @@ namespace Giffy.Modules
                 HttpContext.Current.User.Identity.Name + " " +
                 repository.Models.Count() + 1;
 
+            gifContainer.Description = string.Empty;
+
             if (!repository.Create(gifContainer))
                 throw new InvalidOperationException();
 
