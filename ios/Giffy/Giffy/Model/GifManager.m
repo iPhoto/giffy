@@ -9,6 +9,7 @@
 #import "GifManager.h"
 #import "GifResouce.h"
 #import "NSMutableArray_ThreadSafeQueueAdditions.h"
+#import "UIImage+animatedGIF.h"
 
 @interface GifManager()
 

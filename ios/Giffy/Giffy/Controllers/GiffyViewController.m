@@ -8,6 +8,7 @@
 
 #import "GiffyViewController.h"
 #import "GifManager.h"
+#import "GifRepository.h"
 
 @interface GiffyViewController ()
 
@@ -15,8 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @property (strong, nonatomic) OverlayViewController *overlayViewController;
-
+@property (strong, nonatomic) UIImage *activeImage;
 @property (strong, nonatomic) NSMutableArray *capturedImages;
+@property (strong, nonatomic) GifRepository *repo;
 
 - (IBAction)imageLibraryAction:(id)sender;
 - (IBAction)cameraAction:(id)sender;
@@ -24,6 +26,13 @@
 @end
 
 @implementation GiffyViewController
+
+- (GifRepository *)repo {
+    if (!_repo) {
+        _repo = [[GifRepository alloc] init];
+    }
+    return _repo;
+}
 
 - (void)viewDidLoad
 {
@@ -43,6 +52,20 @@
         [self.toolbar setItems:toolbarItems animated:NO];
     } else {
         [self showImagePicker:UIImagePickerControllerSourceTypeCamera];
+    }
+    
+    NSArray *managers = [self.repo getCompletedGifManagers];
+    if (self.activeImage) {
+        self.imageView.image = self.activeImage;
+        [self.imageView setNeedsDisplay];
+    } else if ([managers count] > 0) {
+        GifManager *aManager = [managers objectAtIndex:0];
+        self.imageView.image = aManager.gif;
+        [self.imageView setNeedsDisplay];
+    } else {
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"sample gif" withExtension:@"gif"];
+        self.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:url];
+        [self.imageView setNeedsDisplay];
     }
 }
 
