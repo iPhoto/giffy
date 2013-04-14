@@ -10,10 +10,11 @@
 
 @interface Response : NSObject
 
-@property (readonly, strong, nonatomic) NSArray* data;
+@property (readonly, strong, nonatomic) id data;
+@property (readonly, nonatomic) NSString* message;
 @property (readonly, nonatomic) BOOL success;
 
--(id)initWithSuccess:(BOOL)success AndData:(NSArray*)data;
--(NSString*)errorMessage;
+-(id)initWithMessage:(NSString*)message;
+-(id)initWithSuccess:(BOOL)success data:(id)data;
 
 @end

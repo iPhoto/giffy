@@ -7,12 +7,32 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Authentication.h"
+#import "GifComponent.h"
+#import "GifContainer.h"
 #import "Response.h"
 
-#define kLoginControllerName @"login"
+#define kGifController_Name @"gif"
+#define kGifController_Add_Action @"add"
+#define kGifController_AddDescription_Action @"addDescription"
+#define kGifController_Finish_Action @"finish"
+#define kGifController_BuilderId_Parameter @"builderId"
 
-#define kLoginResponseUserNameKey @"UserName"
-#define kLoginResponseTokenKey @"Token"
+#define kLoginController_Name @"login"
+
+#define kAuthentication_UserName_Key @"UserName"
+#define kAuthentication_Token_Key @"Token"
+
+#define kGifComponent_Image_Key @"Image"
+#define kGifComponent_Order_Key @"Order"
+
+#define kGifContainer_Description_Key @"Description"
+#define kGifContainer_Gif_Key @"Gif"
+#define kGifContainer_Name_Key @"Name"
+#define kGifContainer_Thumbnail_Key @"Thumbnail"
+
+#define kUserCredentials_Password_Key @"Password"
+#define kUserCredentials_UserName_Key @"UserName"
 
 #define kLoginRequestUserNameKey @"UserName"
 #define kLoginRequestTokenKey @"AuthenticationToken"
@@ -27,14 +47,20 @@ typedef CF_ENUM(int, RequestType) {
 
 @interface ResourceBase : NSObject
 
+-(Response*)makeRequestFromController:(NSString*)controller
+                                 type:(RequestType)requestType
+                               values:(NSDictionary*) values;
+
 // Dictionary (key value pairs) (either query string parameter or JSON post data)
 -(Response*)makeRequestFromController:(NSString*)controller
-                             WithType:(RequestType)requestType
-                           WithAction:(NSString*)action
-                            AndValues:(NSDictionary*) values;
+                                 type:(RequestType)requestType
+                               action:(NSString*)action
+                               values:(NSDictionary*) values;
 
--(Response*)makeRequestFromController:(NSString*)controller
-                             WithType:(RequestType)requestType
-                            AndValues:(NSDictionary*) values;
+
++(Authentication*)authenticationFromResponse:(Response*)response;
++(BOOL)boolFromResponse:(Response*)response;
++(GifContainer*)gifContainerFromResponse:(Response*)response;
++(NSDictionary*)jsonDictionaryFromGifComponent:(GifComponent*)component;
 
 @end

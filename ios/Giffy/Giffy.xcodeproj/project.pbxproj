@@ -11,6 +11,11 @@
 		171D731F1719EF8A0098AD05 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D731E1719EF8A0098AD05 /* Response.m */; };
 		171D73231719F8650098AD05 /* UserCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D73221719F8650098AD05 /* UserCredentials.m */; };
 		171D73261719F8F40098AD05 /* AuthenticationResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D73251719F8F40098AD05 /* AuthenticationResource.m */; };
+		171D7329171A1A200098AD05 /* Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D7328171A1A200098AD05 /* Authentication.m */; };
+		171D732C171A1EB60098AD05 /* GifComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D732B171A1EB60098AD05 /* GifComponent.m */; };
+		171D732F171A1F310098AD05 /* GifContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D732E171A1F310098AD05 /* GifContainer.m */; };
+		171D7332171A26640098AD05 /* GifResouce.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D7331171A26640098AD05 /* GifResouce.m */; };
+		171D7335171A269F0098AD05 /* BuilderId.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D7334171A269F0098AD05 /* BuilderId.m */; };
 		758433CE1719015C007C496F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433CD1719015C007C496F /* UIKit.framework */; };
 		758433D01719015C007C496F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433CF1719015C007C496F /* Foundation.framework */; };
 		758433D21719015C007C496F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433D11719015C007C496F /* CoreGraphics.framework */; };
@@ -60,6 +65,16 @@
 		171D73221719F8650098AD05 /* UserCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserCredentials.m; path = Model/UserCredentials.m; sourceTree = "<group>"; };
 		171D73241719F8F40098AD05 /* AuthenticationResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthenticationResource.h; path = Remoting/AuthenticationResource.h; sourceTree = "<group>"; };
 		171D73251719F8F40098AD05 /* AuthenticationResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthenticationResource.m; path = Remoting/AuthenticationResource.m; sourceTree = "<group>"; };
+		171D7327171A1A200098AD05 /* Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Authentication.h; path = Model/Authentication.h; sourceTree = "<group>"; };
+		171D7328171A1A200098AD05 /* Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Authentication.m; path = Model/Authentication.m; sourceTree = "<group>"; };
+		171D732A171A1EB60098AD05 /* GifComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GifComponent.h; path = Model/GifComponent.h; sourceTree = "<group>"; };
+		171D732B171A1EB60098AD05 /* GifComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GifComponent.m; path = Model/GifComponent.m; sourceTree = "<group>"; };
+		171D732D171A1F310098AD05 /* GifContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GifContainer.h; path = Model/GifContainer.h; sourceTree = "<group>"; };
+		171D732E171A1F310098AD05 /* GifContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GifContainer.m; path = Model/GifContainer.m; sourceTree = "<group>"; };
+		171D7330171A26640098AD05 /* GifResouce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GifResouce.h; path = Remoting/GifResouce.h; sourceTree = "<group>"; };
+		171D7331171A26640098AD05 /* GifResouce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GifResouce.m; path = Remoting/GifResouce.m; sourceTree = "<group>"; };
+		171D7333171A269F0098AD05 /* BuilderId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuilderId.h; path = Model/BuilderId.h; sourceTree = "<group>"; };
+		171D7334171A269F0098AD05 /* BuilderId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BuilderId.m; path = Model/BuilderId.m; sourceTree = "<group>"; };
 		758433CA1719015C007C496F /* Giffy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Giffy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758433CD1719015C007C496F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		758433CF1719015C007C496F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,12 +142,14 @@
 		171D73191719EEFE0098AD05 /* Remoting */ = {
 			isa = PBXGroup;
 			children = (
+				171D73241719F8F40098AD05 /* AuthenticationResource.h */,
+				171D73251719F8F40098AD05 /* AuthenticationResource.m */,
+				171D7330171A26640098AD05 /* GifResouce.h */,
+				171D7331171A26640098AD05 /* GifResouce.m */,
 				171D731A1719EF600098AD05 /* ResourceBase.h */,
 				171D731B1719EF600098AD05 /* ResourceBase.m */,
 				171D731D1719EF8A0098AD05 /* Response.h */,
 				171D731E1719EF8A0098AD05 /* Response.m */,
-				171D73241719F8F40098AD05 /* AuthenticationResource.h */,
-				171D73251719F8F40098AD05 /* AuthenticationResource.m */,
 			);
 			name = Remoting;
 			sourceTree = "<group>";
@@ -140,6 +157,14 @@
 		171D73201719F3A70098AD05 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				171D7327171A1A200098AD05 /* Authentication.h */,
+				171D7328171A1A200098AD05 /* Authentication.m */,
+				171D7333171A269F0098AD05 /* BuilderId.h */,
+				171D7334171A269F0098AD05 /* BuilderId.m */,
+				171D732A171A1EB60098AD05 /* GifComponent.h */,
+				171D732B171A1EB60098AD05 /* GifComponent.m */,
+				171D732D171A1F310098AD05 /* GifContainer.h */,
+				171D732E171A1F310098AD05 /* GifContainer.m */,
 				171D73211719F8650098AD05 /* UserCredentials.h */,
 				171D73221719F8650098AD05 /* UserCredentials.m */,
 			);
@@ -376,6 +401,11 @@
 				171D731F1719EF8A0098AD05 /* Response.m in Sources */,
 				171D73231719F8650098AD05 /* UserCredentials.m in Sources */,
 				171D73261719F8F40098AD05 /* AuthenticationResource.m in Sources */,
+				171D7329171A1A200098AD05 /* Authentication.m in Sources */,
+				171D732C171A1EB60098AD05 /* GifComponent.m in Sources */,
+				171D732F171A1F310098AD05 /* GifContainer.m in Sources */,
+				171D7332171A26640098AD05 /* GifResouce.m in Sources */,
+				171D7335171A269F0098AD05 /* BuilderId.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
