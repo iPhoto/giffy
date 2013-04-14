@@ -77,8 +77,9 @@
 	// Do any additional setup after loading the view.
     GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
     AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
-    GiffyViewController *giffyView = [[GiffyViewController alloc] init];
-    if ([authenticationResource hasStoredCredentials]) {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle bundleForClass:[self class]]];
+    GiffyViewController *giffyView = [storyboard instantiateViewControllerWithIdentifier:@"GiffyViewController"];
+    if ([authenticationResource verifyStoredCredentials]) {
         [self.navigationController pushViewController:giffyView animated:NO];
     }
 }
@@ -95,30 +96,32 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    BOOL performSegue = NO;
     GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
     AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
-    if ([authenticationResource verifyStoredCredentials]) {
-        // go to giffy view
-        NSLog(@"go to giffy view");
-        return NO;
-    } else if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
+    if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
                                                         message:@"You must provide a username and password."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        return NO;
     } else {
-        BOOL performSegue = NO;
         UserCredentials *credentials = [[UserCredentials alloc]initWithUserName:self.username.text AndPassword:self.password.text];
         BOOL success = [authenticationResource loginWithCredentials:credentials];
         if(success)
         {
             performSegue = YES;
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
+                                                            message:@"You must provide a valid username and password."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
         }
-        return performSegue;
     }
+    return performSegue;
 }
 
 @end

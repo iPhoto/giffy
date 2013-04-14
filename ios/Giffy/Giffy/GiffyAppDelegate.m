@@ -134,24 +134,12 @@
 
 -(void)authenticationResource:(AuthenticationResource *)resource DidFailToLoginWithCredentials:(UserCredentials *)credentials
 {
-    // TODO: Notify the user that we could not login with their credentials. Maybe prompt them for a new username/password.
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
-                                                    message:@"You must provide a valid username and password."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    // TODO: Notify the user that we could not login with their credentials. Maybe prompt them for a new username/password
 }
 
 -(void)authenticationResourceIsMissingCredentials:(AuthenticationResource *)resource
 {
     // TODO: Notify the user that we do not have credentials for them and they will need to register
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Credentials Found"
-                                                    message:@"Please register for a new account."
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
 }
 
 @end

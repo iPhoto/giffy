@@ -53,10 +53,12 @@
 
 -(BOOL)loginWithCredentials:(UserCredentials *)credentials
 {
-    if(![self loginWithCredentialsHelper:credentials] && self.delegate )
+    BOOL loggedIn = YES;
+    if(![self loginWithCredentialsHelper:credentials] && self.delegate ) {
         [self.delegate authenticationResource:self DidFailToLoginWithCredentials:credentials];
-    
-    return YES;
+        loggedIn = NO;
+    }
+    return loggedIn;
 }
 
 -(BOOL)loginWithCredentialsHelper:(UserCredentials *)credentials

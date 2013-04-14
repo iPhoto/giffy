@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "GiffyAppDelegate.h"
+#import "GiffyViewController.h"
 
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -75,6 +76,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle bundleForClass:[self class]]];
+    GiffyViewController *giffyView = [storyboard instantiateViewControllerWithIdentifier:@"GiffyViewController"];
+    if ([authenticationResource verifyStoredCredentials]) {
+        [self.navigationController pushViewController:giffyView animated:NO];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -106,20 +114,16 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    BOOL performSegue = NO;
     GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
     AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
-    if ([authenticationResource verifyStoredCredentials]) {
-        // go to giffy view
-        return NO;
-    }
-    else if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
+    if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
                                                         message:@"You must provide a username and password."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        return NO;
     } else if (![self.password.text isEqualToString:self.confirmPassword.text]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
                                                         message:@"The passwords you entered do not match."
@@ -127,20 +131,24 @@
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
-        return NO;
     } else {
-        //TODO register new users
-//        dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
-//        dispatch_async(dQueue, ^{
-//            UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:self.username.text AndPassword:self.password.text];
-//            BOOL success = [authenticationResource loginWithCredentials:credentials];
-//            if(!success)
-//            {
-//                // TODO
-//            }
-//        });
+        RegisterModel *registerModel = [[RegisterModel alloc]
+                                        initWithUserName:self.username.text AndPassword:self.password.text AndConfimation:self.confirmPassword.text];
+        BOOL success = [authenticationResource registerUser:registerModel];
+        if(success)
+        {
+            performSegue = YES;
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unable to Register"
+                                                            message:@"Unable to register at this time, please try again later."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
     }
-    return YES;
+    return performSegue;
 }
 
 @end

@@ -135,34 +135,31 @@
     }
 }
 
-UIImage* resizeImage(UIImage *inImage)
+UIImage* resizeImage(UIImage *image)
 {
-    CGRect thumbRect = CGRectMake(0.0, 0.0, 640.0, 480.0);
-    CGImageRef          imageRef = [inImage CGImage];
-    CGImageAlphaInfo    alphaInfo = CGImageGetAlphaInfo(imageRef);
- 
-    if (alphaInfo == kCGImageAlphaNone)
-        alphaInfo = kCGImageAlphaNoneSkipLast;
+    float actualHeight = image.size.height;
+    float actualWidth = image.size.width;
+    float imgRatio = actualWidth/actualHeight;
+    float maxRatio = 320.0/480.0;
     
-    CGContextRef bitmap = CGBitmapContextCreate(
-                                                NULL,
-                                                thumbRect.size.width,
-                                                thumbRect.size.height,
-                                                CGImageGetBitsPerComponent(imageRef),
-                                                4 * thumbRect.size.width,
-                                                CGImageGetColorSpace(imageRef),
-                                                alphaInfo
-                                                );
-    
-    CGContextDrawImage(bitmap, thumbRect, imageRef);
-    
-    CGImageRef  ref = CGBitmapContextCreateImage(bitmap);
-    UIImage*    result = [UIImage imageWithCGImage:ref];
-    
-    CGContextRelease(bitmap);
-    CGImageRelease(ref);
-    
-    return result;
+    if(imgRatio!=maxRatio){
+        if(imgRatio < maxRatio){
+            imgRatio = 480.0 / actualHeight;
+            actualWidth = imgRatio * actualWidth;
+            actualHeight = 480.0;
+        }
+        else{
+            imgRatio = 320.0 / actualWidth;
+            actualHeight = imgRatio * actualHeight;
+            actualWidth = 320.0;
+        }
+    }
+    CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
+    UIGraphicsBeginImageContext(rect.size);
+    [image drawInRect:rect];
+    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return resizedImage;
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

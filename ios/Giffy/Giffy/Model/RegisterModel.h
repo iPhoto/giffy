@@ -14,4 +14,6 @@
 @property (strong, nonatomic) NSString* password;
 @property (strong, nonatomic) NSString* userName;
 
+-(id)initWithUserName:(NSString*)userName AndPassword:(NSString*)password AndConfimation:(NSString*)confirm;
+
 @end

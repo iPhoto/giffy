@@ -8,6 +8,7 @@
 
 #import "EntryViewController.h"
 #import "GiffyAppDelegate.h"
+#import "GiffyViewController.h"
 
 @interface EntryViewController ()
 @end
@@ -26,11 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
     AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle bundleForClass:[self class]]];
+    GiffyViewController *giffyView = [storyboard instantiateViewControllerWithIdentifier:@"GiffyViewController"];
     if ([authenticationResource verifyStoredCredentials]) {
-        // go to giffy view
+        [self.navigationController pushViewController:giffyView animated:NO];
     }
 }
 
