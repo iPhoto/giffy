@@ -177,9 +177,7 @@
         return nil;
     }
     
-    id data = (NSDictionary*)response.data;
-    
-    NSDictionary* dataDictionary = (NSDictionary*)data;
+    NSDictionary* dataDictionary = (NSDictionary*)response.data;
     
     NSString* userName = dataDictionary[kAuthentication_UserName_Key];
     NSString* token = dataDictionary[kAuthentication_Token_Key];
@@ -199,16 +197,22 @@
     return [boolNumber boolValue];
 }
 
-+(BuilderId*)builderIdFromResponse:(Response*)response
++(GifBuilder*)builderFromResponse:(Response*)response
 {
-    if(![response.data isKindOfClass:[NSNumber class]])
+    if(![response.data isKindOfClass:[NSDictionary class]])
     {
         NSLog(@"Unexpected data object type.");
         return NO;
     }
     
-    NSNumber *intNumber = (NSNumber*)response.data;
-    return [[BuilderId alloc] initWithId:[intNumber intValue]];
+    NSDictionary *dataDictionary = (NSDictionary*)response.data;
+    
+    GifBuilder *builder = [[GifBuilder alloc] init];
+    
+    builder.idValue = [(NSNumber *)dataDictionary[kModel_ID_Key] longValue];
+    builder.name = dataDictionary[kGifBuilder_Name_Key];
+    
+    return builder;
 }
 
 +(GifContainer*)gifContainerFromResponse:(Response*)response

@@ -325,7 +325,10 @@
 
 -(void)startAsync
 {
-    self.builderId = [self.gifResource start];
+    GifBuilder *builder = [self.gifResource start];
+    
+    self.name = builder.name;
+    self.builderId = [[BuilderId alloc] initWithId:builder.idValue];
 }
 
 -(void)updateAsync
@@ -354,7 +357,7 @@
 -(BOOL)verifyBuilder
 {
     if (!self.builderId)
-        self.builderId = [self.gifResource start];
+        [self startAsync];
     
     if (self.builderId)
         return YES;
