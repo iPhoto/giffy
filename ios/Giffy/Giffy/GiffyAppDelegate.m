@@ -30,34 +30,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
-    dispatch_async(dQueue, ^{
-        
-//        RegisterModel *r = [[RegisterModel alloc] initWithUserName:@"mike"
-//                                                       AndPassword:@"password"
-//                                                    AndConfimation:@"password"];
-//        
-//        [self.authenticationResource registerUser:r];
-        
-        // Pass in a GifManagerDelegate here
-        GifManager *manager = [[GifManager alloc] initWithDelegate:nil];
-        
-        UIImage* image = [UIImage imageNamed:@"Icon.png"];
-        [manager addImage:image];
-        
-        image = [UIImage imageNamed:@"Icon-small.png"];
-        [manager addImage:image];
-        
-        [manager finish];
-        
-        // This can be done immediately after calling finish or later when the gifManagerDidFinishCreatingGif:
-        // delegate method is called.
-        manager.name = @"Icon GIF";
-        manager.description = @"This is a test for the GIF creator";
-        [manager update];
-        
-    });
-
     // Override point for customization after application launch.
     return YES;
 }

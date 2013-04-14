@@ -7,7 +7,7 @@
 //
 
 #import "GiffyViewController.h"
-
+#import "GifManager.h"
 
 @interface GiffyViewController ()
 
@@ -76,6 +76,12 @@
     [self.capturedImages addObject:picture];
 }
 
+- (void)gifManagerDidFinishCreatingGif:(GifManager *)manager {
+    NSLog(@"Gif Manager reported that it completed the gif.");
+    self.imageView.image = manager.gif;
+    [self.imageView setNeedsDisplay];
+}
+
 - (void)didFinishWithCamera
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -88,14 +94,11 @@
         }
         else
         {
-            self.imageView.animationImages = self.capturedImages;
-            
-            if (self.capturedImages.count > 0)
-                [self.capturedImages removeAllObjects];
-            
-            self.imageView.animationDuration = 0.5;
-            self.imageView.animationRepeatCount = 0;
-            [self.imageView startAnimating];
+            GifManager *manager = [[GifManager alloc] initWithDelegate:nil];
+            for (UIImage *cameraImage in self.capturedImages) {
+                                [manager addImage:cameraImage];
+            }
+            [manager finish];
         }
     }
 }
