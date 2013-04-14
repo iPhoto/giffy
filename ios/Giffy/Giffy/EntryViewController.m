@@ -29,7 +29,7 @@
 	// Do any additional setup after loading the view.
     GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
     AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
-    if ([authenticationResource hasStoredCredentials]) {
+    if ([authenticationResource verifyStoredCredentials]) {
         // go to giffy view
     }
 }

@@ -108,7 +108,7 @@
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
     AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
-    if ([authenticationResource hasStoredCredentials]) {
+    if ([authenticationResource verifyStoredCredentials]) {
         // go to giffy view
         return NO;
     }

@@ -18,17 +18,12 @@
 
 -(BOOL)addCredentialsInRequest:(NSMutableURLRequest *)request
 {
-    if(![self hasStoredCredentials])
+    if(![self verifyStoredCredentials])
         return NO;
     
     [request addValue:self.currentCredentials.userName forHTTPHeaderField: kLoginRequestUserNameKey];
     [request addValue:self.currentCredentials.authenticationToken forHTTPHeaderField: kLoginRequestAuthenticationTokenKey];
     return YES;
-}
-
--(BOOL)hasStoredCredentials
-{
-    return self.currentCredentials || [self loadCredentials];
 }
 
 -(BOOL)loadCredentials
@@ -53,9 +48,7 @@
     credentials.userName = credentialsDictionary[kUserName];
     credentials.password = credentialsDictionary[kPassword];
     
-    self.currentCredentials = credentials;
-    
-    return YES;
+    return [self loginWithCredentials: credentials];
 }
 
 -(BOOL)loginWithCredentials:(UserCredentials *)credentials
@@ -101,7 +94,9 @@
     self.currentCredentials = nil;
     
     // TODO: Use keychain here
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCredentials];
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:kCredentials];
+    [userDefaults synchronize];
 }
 
 -(BOOL)registerUser:(RegisterModel*)registerModel
@@ -145,6 +140,11 @@
     
     [userDefaults setValue:credentialsDictionary forKey:kCredentials];
     [userDefaults synchronize];
+}
+
+-(BOOL)verifyStoredCredentials
+{
+    return self.currentCredentials || [self loadCredentials];
 }
 
 @end
