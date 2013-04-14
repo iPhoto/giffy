@@ -11,6 +11,7 @@
 #import "OverlayViewController.h"
 #import "UIImage+animatedGIF.h"
 #import "GifManager.h"
+#import "PreviewViewController.h"
 
-@interface GiffyViewController : UIViewController <UIImagePickerControllerDelegate, OverlayViewControllerDelegate, GifManagerDelegate>
+@interface GiffyViewController : UIViewController <UIImagePickerControllerDelegate, OverlayViewControllerDelegate, GifManagerDelegate, PreviewViewControllerDelegate>
 @end

@@ -9,8 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "GifManager.h"
 
+@class PreviewViewController;
+
+@protocol PreviewViewControllerDelegate <NSObject>
+
+@required
+-(void)previewViewWasCancelled:(PreviewViewController *)sender;
+
+@end
+
 @interface PreviewViewController : UIViewController
 
+@property (weak, nonatomic) id<PreviewViewControllerDelegate> delegate;
 @property (strong, nonatomic) GifManager *gifManager;
 @property (strong, nonatomic) UIImage *preview;
 
