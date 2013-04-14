@@ -8,6 +8,7 @@
 
 #import "GiffyViewController.h"
 
+
 @interface GiffyViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -92,7 +93,7 @@
             if (self.capturedImages.count > 0)
                 [self.capturedImages removeAllObjects];
             
-            self.imageView.animationDuration = 1.0;
+            self.imageView.animationDuration = 0.5;
             self.imageView.animationRepeatCount = 0;
             [self.imageView startAnimating];
         }

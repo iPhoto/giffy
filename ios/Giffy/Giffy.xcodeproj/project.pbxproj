@@ -35,8 +35,6 @@
 		758433FC1719015C007C496F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 758433FA1719015C007C496F /* InfoPlist.strings */; };
 		758433FF1719015C007C496F /* GiffyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 758433FE1719015C007C496F /* GiffyTests.m */; };
 		7584341317198FEE007C496F /* GiffyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584341217198FEE007C496F /* GiffyViewController.m */; };
-		7584341817199869007C496F /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584341717199869007C496F /* OverlayViewController.m */; };
-		7584341A17199908007C496F /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7584341917199908007C496F /* OverlayViewController.xib */; };
 		758434631719CB76007C496F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758434621719CB76007C496F /* AudioToolbox.framework */; };
 		758434651719D1C0007C496F /* tick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 758434641719D1C0007C496F /* tick.aiff */; };
 		7584346A1719D3BF007C496F /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 758434661719D3BF007C496F /* Icon-Small.png */; };
@@ -55,6 +53,12 @@
 		75843488171B0A29007C496F /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843484171B0A29007C496F /* UIImage+Alpha.m */; };
 		75843489171B0A29007C496F /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843486171B0A29007C496F /* UIImage+RoundedCorner.m */; };
 		7584348A171B0A29007C496F /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843486171B0A29007C496F /* UIImage+RoundedCorner.m */; };
+		75843494171B245B007C496F /* sample gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75843493171B245A007C496F /* sample gif.gif */; };
+		75843495171B245B007C496F /* sample gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 75843493171B245A007C496F /* sample gif.gif */; };
+		75843497171B2BDE007C496F /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75843496171B2BDD007C496F /* OverlayViewController.xib */; };
+		75843498171B2BDE007C496F /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75843496171B2BDD007C496F /* OverlayViewController.xib */; };
+		7584349B171B2C26007C496F /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584349A171B2C25007C496F /* OverlayViewController.m */; };
+		7584349C171B2C26007C496F /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584349A171B2C25007C496F /* OverlayViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,9 +118,6 @@
 		758433FE1719015C007C496F /* GiffyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GiffyTests.m; sourceTree = "<group>"; };
 		7584341117198FEE007C496F /* GiffyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GiffyViewController.h; path = Controllers/GiffyViewController.h; sourceTree = "<group>"; };
 		7584341217198FEE007C496F /* GiffyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GiffyViewController.m; path = Controllers/GiffyViewController.m; sourceTree = "<group>"; };
-		7584341617199869007C496F /* OverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayViewController.h; path = Controllers/OverlayViewController.h; sourceTree = "<group>"; };
-		7584341717199869007C496F /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayViewController.m; path = Controllers/OverlayViewController.m; sourceTree = "<group>"; };
-		7584341917199908007C496F /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
 		758434621719CB76007C496F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		758434641719D1C0007C496F /* tick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick.aiff; sourceTree = "<group>"; };
 		758434661719D3BF007C496F /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -140,6 +141,10 @@
 		75843484171B0A29007C496F /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		75843485171B0A29007C496F /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		75843486171B0A29007C496F /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		75843493171B245A007C496F /* sample gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "sample gif.gif"; sourceTree = "<group>"; };
+		75843496171B2BDD007C496F /* OverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayViewController.xib; sourceTree = "<group>"; };
+		75843499171B2C24007C496F /* OverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayViewController.h; path = Controllers/OverlayViewController.h; sourceTree = "<group>"; };
+		7584349A171B2C25007C496F /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayViewController.m; path = Controllers/OverlayViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,8 +259,8 @@
 				171D73191719EEFE0098AD05 /* Remoting */,
 				758433DC1719015C007C496F /* GiffyAppDelegate.h */,
 				758433DD1719015C007C496F /* GiffyAppDelegate.m */,
+				75843496171B2BDD007C496F /* OverlayViewController.xib */,
 				758433E51719015C007C496F /* MainStoryboard.storyboard */,
-				7584341917199908007C496F /* OverlayViewController.xib */,
 				758433D41719015C007C496F /* Supporting Files */,
 			);
 			path = Giffy;
@@ -264,6 +269,7 @@
 		758433D41719015C007C496F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				75843493171B245A007C496F /* sample gif.gif */,
 				75843483171B0A29007C496F /* UIImage+Alpha.h */,
 				75843484171B0A29007C496F /* UIImage+Alpha.m */,
 				75843485171B0A29007C496F /* UIImage+RoundedCorner.h */,
@@ -312,6 +318,8 @@
 		7584340B171909BB007C496F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				75843499171B2C24007C496F /* OverlayViewController.h */,
+				7584349A171B2C25007C496F /* OverlayViewController.m */,
 				75843478171A224A007C496F /* RegisterViewController.h */,
 				75843479171A224A007C496F /* RegisterViewController.m */,
 				75843472171A11E0007C496F /* EntryViewController.h */,
@@ -320,8 +328,6 @@
 				75843476171A11F8007C496F /* LoginViewController.m */,
 				7584341117198FEE007C496F /* GiffyViewController.h */,
 				7584341217198FEE007C496F /* GiffyViewController.m */,
-				7584341617199869007C496F /* OverlayViewController.h */,
-				7584341717199869007C496F /* OverlayViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -403,7 +409,6 @@
 				758433E21719015C007C496F /* Default@2x.png in Resources */,
 				758433E41719015C007C496F /* Default-568h@2x.png in Resources */,
 				758433E71719015C007C496F /* MainStoryboard.storyboard in Resources */,
-				7584341A17199908007C496F /* OverlayViewController.xib in Resources */,
 				758434651719D1C0007C496F /* tick.aiff in Resources */,
 				7584346A1719D3BF007C496F /* Icon-Small.png in Resources */,
 				7584346B1719D3BF007C496F /* Icon-Small@2x.png in Resources */,
@@ -411,6 +416,8 @@
 				7584346D1719D3BF007C496F /* Icon@2x.png in Resources */,
 				7584346F171A01C5007C496F /* iPhone-5-Gradient-Background-05.jpg in Resources */,
 				75843471171A0236007C496F /* Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg in Resources */,
+				75843494171B245B007C496F /* sample gif.gif in Resources */,
+				75843497171B2BDE007C496F /* OverlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +426,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				758433FC1719015C007C496F /* InfoPlist.strings in Resources */,
+				75843495171B245B007C496F /* sample gif.gif in Resources */,
+				75843498171B2BDE007C496F /* OverlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +457,6 @@
 				758433DA1719015C007C496F /* main.m in Sources */,
 				758433DE1719015C007C496F /* GiffyAppDelegate.m in Sources */,
 				7584341317198FEE007C496F /* GiffyViewController.m in Sources */,
-				7584341817199869007C496F /* OverlayViewController.m in Sources */,
 				75843474171A11E0007C496F /* EntryViewController.m in Sources */,
 				75843477171A11F8007C496F /* LoginViewController.m in Sources */,
 				171D731C1719EF600098AD05 /* ResourceBase.m in Sources */,
@@ -468,6 +476,7 @@
 				75843480171B0748007C496F /* UIImage+animatedGIF.m in Sources */,
 				75843487171B0A29007C496F /* UIImage+Alpha.m in Sources */,
 				75843489171B0A29007C496F /* UIImage+RoundedCorner.m in Sources */,
+				7584349B171B2C26007C496F /* OverlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +487,7 @@
 				758433FF1719015C007C496F /* GiffyTests.m in Sources */,
 				75843488171B0A29007C496F /* UIImage+Alpha.m in Sources */,
 				7584348A171B0A29007C496F /* UIImage+RoundedCorner.m in Sources */,
+				7584349C171B2C26007C496F /* OverlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

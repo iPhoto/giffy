@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "OverlayViewController.h"
+#import "UIImage+animatedGIF.h"
 
 @interface GiffyViewController : UIViewController <UIImagePickerControllerDelegate, OverlayViewControllerDelegate>
 @end
