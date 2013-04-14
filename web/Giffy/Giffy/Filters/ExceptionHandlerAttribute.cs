@@ -27,8 +27,23 @@ namespace Giffy.Filters
                     {
                         Success = false,
                         Data = default(bool),
-                        Message = actionExecutedContext.Exception.Message
+                        Message = 
+                            CompileExceptionMessage(
+                                actionExecutedContext.Exception)
                     });
+        }
+
+        private string CompileExceptionMessage(Exception exception)
+        {
+            var messages = new List<string>();
+
+            while (exception != null)
+            {
+                messages.Add(exception.Message);
+                exception = exception.InnerException;
+            }
+
+            return messages.Aggregate((x, y) => x + " " + y);
         }
     }
 }

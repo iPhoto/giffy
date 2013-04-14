@@ -46,7 +46,7 @@
         if (delegate)
             [self.delegates addObject:delegate];
         
-        [self queueStart];
+        [self startAsync];
     }
     
     return self;
@@ -194,6 +194,8 @@
         [self notifyError:@"No images have been added to the GIF file."];
         return;
     }
+    
+    NSLog(@"Sending finish request to server.");
     
     GifContainer* container = [self.gifResource finish:self.builderId];
     if (!container)

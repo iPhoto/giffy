@@ -11,6 +11,8 @@ namespace Giffy.Models.Gifs
     {
         #region Properties
 
+        public virtual string Name { get; set; }
+
         public virtual ICollection<GifComponent> Components { get; set; }
 
         #endregion //Properties

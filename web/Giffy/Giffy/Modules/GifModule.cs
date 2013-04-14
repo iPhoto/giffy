@@ -12,6 +12,10 @@ namespace Giffy.Modules
         public GifBuilder StartBuild()
         {
             var builder = new GifBuilder();
+            builder.Name = 
+                HttpContext.Current.User.Identity.Name + " " +
+                (new GifContainerRepository().Models.Count() + 1);
+
             var repository = new GifBuilderRepository();
             if (!repository.Create(builder))
                 throw new InvalidOperationException();
@@ -38,10 +42,7 @@ namespace Giffy.Modules
             var gifContainer = builder.Build();
             var repository = new GifContainerRepository();
 
-            gifContainer.Name =
-                HttpContext.Current.User.Identity.Name + " " +
-                repository.Models.Count() + 1;
-
+            gifContainer.Name = builder.Name;
             gifContainer.Description = string.Empty;
 
             if (!repository.Create(gifContainer))
