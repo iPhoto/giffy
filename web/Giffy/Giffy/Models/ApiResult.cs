@@ -5,9 +5,10 @@ using System.Web;
 
 namespace Giffy.Models
 {
-    public class ApiResult
+    public class ApiResult<TResult>
     {
         public bool Success { get; set; }
-        public IEnumerable<object> Data { get; set; }
+        public TResult Data { get; set; }
+        public string Message { get; set; }
     }
 }

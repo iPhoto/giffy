@@ -14,10 +14,11 @@ namespace Giffy.Controllers.Api.Account
 {
     [AllowAnonymous]
     [InitializeApiMembershipAttribute]
-    public class RegisterController : ApiController
+    public class RegisterController : ApiControllerBase
     {
         [HttpPost]
         [AllowAnonymous]
+        [ActionName("Default")]
         public object Post(RegisterModel model)
         {
             if (!ModelState.IsValid)
