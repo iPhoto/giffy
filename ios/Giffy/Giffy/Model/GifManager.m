@@ -16,6 +16,7 @@
 @property (readwrite, atomic) UIImage* gif;
 @property (readonly, strong, nonatomic) GifResouce* gifResource;
 @property (atomic) int sentImageCount;
+@property (readwrite, atomic) UIImage* preview;
 @property (readwrite, atomic) UIImage* thumbnail;
 
 
@@ -55,19 +56,6 @@
         [self reportError:@"Error sending an image to the server."];
 }
 
--(void)addName:(NSString *)name description:(NSString *)description
-{
-    if (![self verifyBuilder])
-        return;
-    
-    // TODO: Cache these and send them later and only after the gif has finished being created.
-    if (!self.containerId)
-        [self reportError:@"Cannot add a name and description before the gif has been completed."];
-    
-    if (![self.gifResource addName:name description:description toContainer:self.containerId])
-        [self reportError:@"Error sending the name and description to the server."];
-}
-
 -(void)finish
 {
     if (![self verifyBuilder])
@@ -82,8 +70,34 @@
         [self reportError:@"Error finalizing the GIF file on the server."];
     
     self.containerId = [[ContainerId alloc] initWithId:container.idValue];
-    self.thumbnail = [UIImage imageWithData:container.thumbnail];
-    self.gif = [UIImage imageWithData:container.gif];
+    
+    if (container.thumbnail)
+        self.thumbnail = [UIImage imageWithData:container.thumbnail];
+    
+    if (container.preview)
+        self.preview = [UIImage imageWithData:container.preview];
+    
+    if (container.gif)
+        self.gif = [UIImage imageWithData:container.gif];
+    
+    // TODO: How can we do this if the name comes back from the server?
+    //if (self.name != container.name || self.description != container.description)
+    //    [self update];
+}
+
+-(void)update
+{
+    // TODO: Only do something if the name or description have changed.
+    
+    if (![self verifyBuilder])
+        return;
+    
+    // TODO: Cache these and send them later and only after the gif has finished being created.
+    if (!self.containerId)
+        [self reportError:@"Cannot add a name and description before the gif has been completed."];
+    
+    if (![self.gifResource addName:self.name description:self.description toContainer:self.containerId])
+        [self reportError:@"Error sending the name and description to the server."];
 }
 
 #pragma mark - Helper methods

@@ -239,6 +239,7 @@
     container.gifDescription = dataDictionary[kGifContainer_Description_Key];
     container.idValue = [(NSNumber*)dataDictionary[kModel_ID_Key] longValue];
     container.name = dataDictionary[kGifContainer_Name_Key];
+    container.thumbnail = [Base64 dataForBase64:dataDictionary[kGifContainer_Preview_Key]];
     container.thumbnail = [Base64 dataForBase64:dataDictionary[kGifContainer_Thumbnail_Key]];
     
     return container;

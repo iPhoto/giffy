@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSData *gif;
 @property (strong, nonatomic) NSString *gifDescription;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSData *preview;
 @property (strong, nonatomic) NSData *thumbnail;
 
 @end

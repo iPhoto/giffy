@@ -10,6 +10,7 @@
 
 #import "AuthenticationResource.h"
 #import "GifManager.h"
+#import "GifResouce.h"
 
 @interface GiffyAppDelegate() <AuthenticationResourceDelegate>
 @end
@@ -32,6 +33,12 @@
     dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
     dispatch_async(dQueue, ^{
         
+//        RegisterModel *r = [[RegisterModel alloc] initWithUserName:@"mike"
+//                                                       AndPassword:@"password"
+//                                                    AndConfimation:@"password"];
+//        
+//        [self.authenticationResource registerUser:r];
+        
         // Pass in a GifManagerDelegate here
         GifManager *manager = [[GifManager alloc] initWithDelegate:nil];
         
@@ -43,9 +50,11 @@
         
         [manager finish];
         
-        // This can be done immediately after calling finish or later when the gifManager:didFinishCreatingGif:withThumbnail:
+        // This can be done immediately after calling finish or later when the gifManagerDidFinishCreatingGif:
         // delegate method is called.
-        [manager addName:@"Icon GIF" description:@"This is a test for the GIF creator"];
+        manager.name = @"Icon GIF";
+        manager.description = @"This is a test for the GIF creator";
+        [manager update];
         
     });
 

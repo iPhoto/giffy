@@ -13,11 +13,12 @@
 @protocol GifManagerDelegate <NSObject>
 
 @required
--(void)gifManager:(GifManager *)manager didFinishCreatingGif:(UIImage *)gif withThumbnail:(UIImage *)thumbnail;
+-(void)gifManagerDidFinishCreatingGif:(GifManager *)manager;
 
 @optional
 -(void)gifManager:(GifManager *)manager didFinishUploadingImageIndex:(int)imageIndex of:(int)imageCount;
 -(void)gifManager:(GifManager *)manager didReceiveError:(NSString*)errorMessage;
+-(void)gifManagerDidFinishUpdating:(GifManager *)manager;
 
 @end
 
@@ -26,11 +27,14 @@
 -(id)initWithDelegate:(id<GifManagerDelegate>)delegate;
 
 -(void)addImage:(UIImage *)image;
--(void)addName:(NSString *)name description:(NSString *)description;
 -(void)finish;
+-(void)update;
 
 @property (readonly, nonatomic) id<GifManagerDelegate> delegate;
+@property (atomic) NSString* description;
 @property (readonly, atomic) UIImage* gif;
+@property (atomic) NSString* name;
+@property (readonly, atomic) UIImage* preview;
 @property (readonly, atomic) UIImage* thumbnail;
 
 @end
