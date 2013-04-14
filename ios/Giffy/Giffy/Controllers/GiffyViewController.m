@@ -39,7 +39,7 @@
     {
         NSMutableArray *toolbarItems = [NSMutableArray arrayWithCapacity:self.toolbar.items.count];
         [toolbarItems addObjectsFromArray:self.toolbar.items];
-        [toolbarItems removeObjectAtIndex:2];
+        //[toolbarItems removeObjectAtIndex:2];
         [self.toolbar setItems:toolbarItems animated:NO];
     } else {
         [self showImagePicker:UIImagePickerControllerSourceTypeCamera];

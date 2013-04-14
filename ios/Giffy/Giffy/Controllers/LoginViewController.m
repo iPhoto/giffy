@@ -75,6 +75,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
+    GiffyViewController *giffyView = [[GiffyViewController alloc] init];
+    if ([authenticationResource hasStoredCredentials]) {
+        [self.navigationController pushViewController:giffyView animated:NO];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -89,12 +95,9 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
-    AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
+
     if ([authenticationResource hasStoredCredentials]) {
-        // go to giffy view
-        NSLog(@"go to giffy view");
-        return NO;
+        return YES;
     } else if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
                                                         message:@"You must provide a username and password."
@@ -104,17 +107,14 @@
         [alert show];
         return NO;
     } else {
-        GiffyViewController *giffyView = [[GiffyViewController alloc] init];
-        dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
-        dispatch_async(dQueue, ^{
-            UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:self.username.text AndPassword:self.password.text];
-            BOOL success = [authenticationResource loginWithCredentials:credentials];
-            if(success)
-            {
-                //[self.navigationController pushViewController:giffyView animated:NO];
-            }
-        });
-        return NO;
+        BOOL performSegue = NO;
+        UserCredentials *credentials = [[UserCredentials alloc]initWithUserName:self.username.text AndPassword:self.password.text];
+        BOOL success = [authenticationResource loginWithCredentials:credentials];
+        if(success)
+        {
+            performSegue = YES;
+        }
+        return performSegue;
     }
 }
 
