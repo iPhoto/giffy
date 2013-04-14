@@ -58,18 +58,20 @@ namespace Giffy.Controllers.Api.Gif
         {
             var userName = this.UserName.ToLower();
             var gifContainers =
-                new GifContainerRepository().Models
-                .Where(c => c.CreatedBy == userName)
+                (from container in new GifContainerRepository().Models
+                 where container.CreatedBy == userName
+                 orderby container.CreatedOn descending
+                 select container)
                 .ToList();
 
             return Success(gifContainers);
         }
 
         [HttpPost]
-        public ApiResult<int> Start()
+        public ApiResult<GifBuilder> Start()
         {
             var builder = this.GifModule.StartBuild();
-            return Success(builder.ID);
+            return Success(builder);
         }
 
         [HttpPost]
