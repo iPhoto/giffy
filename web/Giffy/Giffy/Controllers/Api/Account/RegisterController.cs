@@ -19,34 +19,21 @@ namespace Giffy.Controllers.Api.Account
         [HttpPost]
         [AllowAnonymous]
         [ActionName("Default")]
-        public object Post(RegisterModel model)
+        public ApiResult<bool> Post(RegisterModel model)
         {
             if (!ModelState.IsValid)
-                return new {
-                    success = false,
-                    data = new { }
-                };
+                return Failure<bool>("The data is not in the correct format");
 
             try
             {
                 WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                 WebSecurity.Login(model.UserName, model.Password);
 
-                return new { 
-                    success = true,
-                    data = new { } 
-                };
+                return Success(true);
             }
             catch (MembershipCreateUserException e)
             {
-                return new
-                {
-                    success = false,
-                    data = new
-                    {
-                        message = AccountErrors.ErrorCodeToString(e.StatusCode)
-                    }
-                };
+                return Failure<bool>(AccountErrors.ErrorCodeToString(e.StatusCode));
             }
         }
     }

@@ -11,6 +11,14 @@ namespace Giffy.Repositories
 {
     public class GifBuilderRepository : Repository<GifBuilder>
     {
+        public override GifBuilder Get(int id)
+        {
+            return 
+                this.ModelContainer
+                .Include(b => b.Components)
+                .FirstOrDefault(b => b.ID == id);
+        }
+
         protected override DbContext GetContext()
         {
             return RequestData.Instance.Models;

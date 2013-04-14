@@ -16,6 +16,8 @@ namespace Giffy.Utilities
                 if (models == null)
                 {
                     models = new UsersContext();
+                    models.Configuration.ProxyCreationEnabled = false;
+                    models.Configuration.LazyLoadingEnabled = true;
                     HttpContext.Current.Items["UserModels"] = models;
                 }
 
@@ -31,6 +33,8 @@ namespace Giffy.Utilities
                 if (models == null)
                 {
                     models = new ModelContext();
+                    models.Configuration.ProxyCreationEnabled = false;
+                    models.Configuration.LazyLoadingEnabled = true;
                     HttpContext.Current.Items["Models"] = models;
                 }
 
