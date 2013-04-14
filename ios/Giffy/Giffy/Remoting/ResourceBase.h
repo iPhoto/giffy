@@ -36,6 +36,7 @@
 #define kGifContainer_Gif_Key @"Gif"
 #define kGifController_GifContainerID_Key @"GifContainerID"
 #define kGifContainer_Name_Key @"Name"
+#define kGifContainer_Preview_Key @"Preview"
 #define kGifContainer_Thumbnail_Key @"Thumbnail"
 
 #define kModel_ID_Key @"ID"

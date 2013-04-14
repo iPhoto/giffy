@@ -1,14 +1,14 @@
 //
-//  BuilderId.h
+//  ContainerId.h
 //  Giffy
 //
-//  Created by Michael Dour on 4/13/13.
+//  Created by Michael Dour on 4/14/13.
 //  Copyright (c) 2013 The Giffy Group. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface BuilderId : NSObject
+@interface ContainerId : NSObject
 
 @property (readonly, nonatomic) long idValue;
 
