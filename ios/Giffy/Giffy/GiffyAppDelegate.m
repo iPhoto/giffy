@@ -31,15 +31,22 @@
 {
 //    dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
 //    dispatch_async(dQueue, ^{
-    
-//        RegisterModel *registerModel = [[RegisterModel alloc] init];
-//        registerModel.userName = @"test3";
-//        registerModel.password = @"password1";
-//        registerModel.confirmPassword = @"password1";
-//        BOOL success1 = [self.authenticationResource registerUser:registerModel];
 //        
-//        if(success1)
+////        RegisterModel *registerModel = [[RegisterModel alloc] init];
+////        registerModel.userName = @"test3";
+////        registerModel.password = @"password1";
+////        registerModel.confirmPassword = @"password1";
+////        BOOL success1 = [self.authenticationResource registerUser:registerModel];
+////        
+////        if(success1)
+////        {
+////        }
+//        
+//        UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:@"test" AndPassword:@"password"];
+//        BOOL success = [self.authenticationResource loginWithCredentials:credentials];
+//        if(!success)
 //        {
+//            // TODO
 //        }
         
 //        UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:@"test" AndPassword:@"password"];

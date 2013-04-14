@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using Giffy.Models;
+using Giffy.Models.Gifs;
 using Giffy.Models.Interfaces;
 
 namespace Giffy.Repositories
@@ -61,7 +62,7 @@ namespace Giffy.Repositories
 
         #region Methods
 
-        public TModel Get(int id)
+        public virtual TModel Get(int id)
         {
             return this.ModelContainer.Where(m => m.ID == id).SingleOrDefault();
         }

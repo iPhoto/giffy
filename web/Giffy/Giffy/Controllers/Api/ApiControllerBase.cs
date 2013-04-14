@@ -8,9 +8,11 @@ using System.Web.Mvc;
 using Giffy.Models;
 using Giffy.Utilities;
 using System.Net.Http.Formatting;
+using Giffy.Filters;
 
 namespace Giffy.Controllers
 {
+    [ExceptionHandler]
     public abstract class ApiControllerBase : ApiController
     {
         protected Device GetDevice()

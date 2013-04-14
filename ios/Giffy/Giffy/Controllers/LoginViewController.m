@@ -95,9 +95,12 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-
-    if ([authenticationResource hasStoredCredentials]) {
-        return YES;
+    GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
+    if ([authenticationResource verifyStoredCredentials]) {
+        // go to giffy view
+        NSLog(@"go to giffy view");
+        return NO;
     } else if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
                                                         message:@"You must provide a username and password."

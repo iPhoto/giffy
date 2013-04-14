@@ -29,9 +29,9 @@
 @property (weak, atomic) id<AuthenticationResourceDelegate> delegate;
 
 -(BOOL)addCredentialsInRequest:(NSMutableURLRequest*)request;
--(BOOL)hasStoredCredentials;
 -(BOOL)loginWithCredentials:(UserCredentials*)credentials;
 -(void)logout;
 -(BOOL)registerUser:(RegisterModel*)registerModel;
+-(BOOL)verifyStoredCredentials;
 
 @end

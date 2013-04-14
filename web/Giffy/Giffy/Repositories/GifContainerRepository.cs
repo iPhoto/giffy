@@ -11,8 +11,6 @@ namespace Giffy.Repositories
 {
     public class GifContainerRepository : Repository<GifContainer>
     {
-        private ModelContext context = new ModelContext();
-
         protected override DbContext GetContext()
         {
             return RequestData.Instance.Models;
