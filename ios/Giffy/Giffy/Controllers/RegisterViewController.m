@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "GiffyAppDelegate.h"
 
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -105,7 +106,13 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
+    GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
+    if ([authenticationResource hasStoredCredentials]) {
+        // go to giffy view
+        return NO;
+    }
+    else if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
                                                         message:@"You must provide a username and password."
                                                        delegate:nil
@@ -121,6 +128,17 @@
                                               otherButtonTitles:nil];
         [alert show];
         return NO;
+    } else {
+        //TODO register new users
+//        dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
+//        dispatch_async(dQueue, ^{
+//            UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:self.username.text AndPassword:self.password.text];
+//            BOOL success = [authenticationResource loginWithCredentials:credentials];
+//            if(!success)
+//            {
+//                // TODO
+//            }
+//        });
     }
     return YES;
 }

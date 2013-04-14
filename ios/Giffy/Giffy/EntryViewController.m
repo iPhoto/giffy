@@ -7,6 +7,7 @@
 //
 
 #import "EntryViewController.h"
+#import "GiffyAppDelegate.h"
 
 @interface EntryViewController ()
 @end
@@ -26,6 +27,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
+    AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
+    if ([authenticationResource hasStoredCredentials]) {
+        // go to giffy view
+    }
 }
 
 - (void)didReceiveMemoryWarning

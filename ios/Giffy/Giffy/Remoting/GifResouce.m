@@ -11,6 +11,7 @@
 
 @implementation GifResouce
 
+
 -(BOOL)add:(GifComponent*)component
 {
     NSDictionary *values = @{kGifComponent_BuilderId_Key : @(component.builderId.idValue),

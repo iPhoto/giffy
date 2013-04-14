@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "GiffyAppDelegate.h"
+#import "GiffyViewController.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *username;
@@ -89,9 +90,10 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     GiffyAppDelegate *appDelegate = (GiffyAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSUserDefaults *userDefaults = appDelegate.defaults;
-    if ([userDefaults stringForKey:@"giffytoken"]) {
-        //go to giffy view
+    AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
+    if ([authenticationResource hasStoredCredentials]) {
+        // go to giffy view
+        NSLog(@"go to giffy view");
         return NO;
     } else if ([self.username.text isEqualToString:@""] || [self.password.text isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Credentials"
@@ -102,15 +104,14 @@
         [alert show];
         return NO;
     } else {
-        AuthenticationResource *authenticationResource = appDelegate.authenticationResource;
-    
+        GiffyViewController *giffyView = [[GiffyViewController alloc] init];
         dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
         dispatch_async(dQueue, ^{
             UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:self.username.text AndPassword:self.password.text];
             BOOL success = [authenticationResource loginWithCredentials:credentials];
-            if(!success)
+            if(success)
             {
-                // TODO
+                //[self.navigationController pushViewController:giffyView animated:NO];
             }
         });
         return NO;
