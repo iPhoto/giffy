@@ -27,15 +27,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
-    dispatch_async(dQueue, ^{
-        UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:@"test" AndPassword:@"password"];
-        BOOL success = [self.authenticationResource loginWithCredentials:credentials];
-        if(!success)
-        {
-            // TODO
-        }
-    });
+//    dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
+//    dispatch_async(dQueue, ^{
+//        UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:@"test" AndPassword:@"password"];
+//        BOOL success = [self.authenticationResource loginWithCredentials:credentials];
+//        if(!success)
+//        {
+//            // TODO
+//        }
+//    });
 
     // Override point for customization after application launch.
     return YES;

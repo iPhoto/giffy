@@ -39,6 +39,7 @@
 		75843471171A0236007C496F /* Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75843470171A0236007C496F /* Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg */; };
 		75843474171A11E0007C496F /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843473171A11E0007C496F /* EntryViewController.m */; };
 		75843477171A11F8007C496F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843476171A11F8007C496F /* LoginViewController.m */; };
+		7584347A171A224A007C496F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75843479171A224A007C496F /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		75843473171A11E0007C496F /* EntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryViewController.m; sourceTree = "<group>"; };
 		75843475171A11F8007C496F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Controllers/LoginViewController.h; sourceTree = "<group>"; };
 		75843476171A11F8007C496F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Controllers/LoginViewController.m; sourceTree = "<group>"; };
+		75843478171A224A007C496F /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Controllers/RegisterViewController.h; sourceTree = "<group>"; };
+		75843479171A224A007C496F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Controllers/RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +238,8 @@
 		7584340B171909BB007C496F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				75843478171A224A007C496F /* RegisterViewController.h */,
+				75843479171A224A007C496F /* RegisterViewController.m */,
 				75843472171A11E0007C496F /* EntryViewController.h */,
 				75843473171A11E0007C496F /* EntryViewController.m */,
 				75843475171A11F8007C496F /* LoginViewController.h */,
@@ -376,6 +381,7 @@
 				171D731F1719EF8A0098AD05 /* Response.m in Sources */,
 				171D73231719F8650098AD05 /* UserCredentials.m in Sources */,
 				171D73261719F8F40098AD05 /* AuthenticationResource.m in Sources */,
+				7584347A171A224A007C496F /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
