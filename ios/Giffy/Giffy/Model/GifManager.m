@@ -17,17 +17,19 @@
 @property (strong, atomic) ContainerId * containerId;
 @property (readwrite, strong, atomic) UIImage* gif;
 @property (readonly, strong, nonatomic) GifResouce* gifResource;
+@property (readwrite, nonatomic) BOOL isComplete;
 @property (readwrite, strong, atomic) UIImage* preview;
 @property (readwrite, strong, atomic) UIImage* thumbnail;
 @property (readwrite, atomic) BOOL updateRequired;
 
 @property (atomic) BOOL isFinishWaitingToBeQueued;
 @property (atomic) BOOL isUpdateWaitingToBeQueued;
-@property (readonly, strong, nonatomic) NSMutableArray *imageUploadQueue; // Array of GifComponent
+@property (strong, nonatomic) NSMutableArray *imageUploadQueue; // Array of GifComponent
 @property (readonly, strong, nonatomic) dispatch_queue_t workQueue;
 
 @end
 
+// TODO: Add logic to detect when the container got thrown away on the server and therefore all images need to be re-sent.
 @implementation GifManager
 
 -(id)initWithDelegate:(id<GifManagerDelegate>)delegate
@@ -40,8 +42,22 @@
         _imageUploadQueue = [[NSMutableArray alloc] init];
         _workQueue = dispatch_queue_create("GifManager dispatch", NULL);
         
-        // TODO: dispatch this to a background thread.
-        self.builderId = [self.gifResource start];
+        [self queueStart];
+    }
+    
+    return self;
+}
+
+-(id)initWithGifContainer:(GifContainer *)container
+{
+    self = [super init];
+    if(self)
+    {
+        _gifResource = [[GifResouce alloc] init];
+        _workQueue = dispatch_queue_create("GifManager dispatch", NULL);
+        
+        [self initializeFromGifContainer:container];
+        _updateRequired = NO;
     }
     
     return self;
@@ -49,20 +65,26 @@
 
 #pragma mark - Property implementations
 
-@synthesize description = _description;
+@synthesize gifDescription = _gifDescription;
 
--(NSString*) description
+-(NSString*) gifDescription
 {
-    return _description;
+    return _gifDescription;
 }
 
--(void)setDescription:(NSString *)description
+-(void)setGifDescription:(NSString *)gifDescription
 {
     @synchronized(self)
     {
-        _description = description;
+        _gifDescription = gifDescription;
         self.updateRequired = YES;
     }
+}
+
+-(void)setIsComplete:(BOOL)isComplete
+{
+    _isComplete = isComplete;
+    self.imageUploadQueue = nil;
 }
 
 @synthesize name = _name;
@@ -86,11 +108,11 @@
 -(void)addImage:(UIImage *)image
 {
     NSAssert(image, @"No image was specified to addImage:");
+    NSAssert(self.imageUploadQueue, @"This GifManager is already complete.");
     
     NSData *data = UIImageJPEGRepresentation(image, 0.5);
     
     GifComponent *component = [[GifComponent alloc] init];
-    component.builderId = self.builderId;
     component.imageData = data;
     component.order = self.addedImageCount++;
     
@@ -101,7 +123,7 @@
 
 -(void)finish
 {
-    if (self.containerId)
+    if (self.containerId || self.isComplete)
     {
         NSLog(@"Error: the GifManager was finished multiple times");
         return;
@@ -125,6 +147,7 @@
         return;
     
     GifComponent *component = [self.imageUploadQueue dequeue];
+    component.builderId = self.builderId;
     
     if (![self.gifResource add:component])
     {
@@ -155,6 +178,15 @@
         return;
     }
     
+    [self initializeFromGifContainer:container];
+    [self notifyFinished];
+    
+    // Update may have been called, so now that we are done creating the GIF, we can safely update.
+    [self queueUpdateIfPossible];
+}
+
+-(void)initializeFromGifContainer:(GifContainer *)container
+{
     self.containerId = [[ContainerId alloc] initWithId:container.idValue];
     
     if (container.thumbnail)
@@ -171,13 +203,10 @@
         self.name = container.name;
     
     // If the description was already set by the user, don't overwrite it with the initial value from the server.
-    if (!self.description && container.description)
-        self.description = container.description;
+    if (!self.gifDescription && container.gifDescription)
+        self.gifDescription = container.gifDescription;
     
-    [self notifyFinished];
-    
-    // Update may have been called, so now that we are done creating the GIF, we can safely update.
-    [self queueUpdateIfPossible];
+    self.isComplete = YES;
 }
 
 -(void)notifyError:(NSString*)errorMessage
@@ -246,6 +275,13 @@
     return NO;
 }
 
+-(BOOL)queueStart
+{
+    NSLog(@"Adding startAsync to the work queue.");
+    dispatch_async(self.workQueue, ^{ [self startAsync]; });
+    return YES;
+}
+
 -(BOOL)queueUpdateIfPossible
 {
     if (self.isUpdateWaitingToBeQueued && self.containerId)
@@ -259,9 +295,13 @@
     return NO;
 }
 
+-(void)startAsync
+{
+    self.builderId = [self.gifResource start];
+}
+
 -(void)updateAsync
 {    
-    // TODO: Only do something if the name or description have changed.
     if (self.updateRequired)
     {
         if (![self verifyBuilder])
@@ -273,7 +313,7 @@
             return;
         }
         
-        if (![self.gifResource addName:self.name description:self.description toContainer:self.containerId])
+        if (![self.gifResource addName:self.name description:self.gifDescription toContainer:self.containerId])
         {
             [self notifyError:@"Error sending the name and description to the server."];
             return;

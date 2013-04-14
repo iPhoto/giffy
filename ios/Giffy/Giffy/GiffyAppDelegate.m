@@ -8,14 +8,15 @@
 
 #import "GiffyAppDelegate.h"
 
-#import "AuthenticationResource.h"
 #import "GifManager.h"
-#import "GifResouce.h"
+#import "GifRepository.h"
 
 @interface GiffyAppDelegate() <AuthenticationResourceDelegate>
 @end
 
 @implementation GiffyAppDelegate
+
+@synthesize authenticationResource = _authenticationResource;
 
 -(AuthenticationResource*)authenticationResource
 {
@@ -32,30 +33,32 @@
 {
     dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
     dispatch_async(dQueue, ^{
-        
-//        RegisterModel *r = [[RegisterModel alloc] initWithUserName:@"mike"
-//                                                       AndPassword:@"password"
-//                                                    AndConfimation:@"password"];
+               
+//        // Pass in a GifManagerDelegate here
+//        GifManager *manager = [[GifManager alloc] initWithDelegate:nil];
 //        
-//        [self.authenticationResource registerUser:r];
+//        UIImage* image = [UIImage imageNamed:@"Icon.png"];
+//        [manager addImage:image];
+//        
+//        image = [UIImage imageNamed:@"Icon-small.png"];
+//        [manager addImage:image];
+//        
+//        [manager finish];
+//        
+//        // This can be done immediately after calling finish or later when the gifManagerDidFinishCreatingGif:
+//        // delegate method is called.
+//        manager.name = @"Icon GIF";
+//        manager.description = @"This is a test for the GIF creator";
+//        [manager update];
+
         
-        // Pass in a GifManagerDelegate here
-        GifManager *manager = [[GifManager alloc] initWithDelegate:nil];
+        GifRepository *repository = [[GifRepository alloc] init];
         
-        UIImage* image = [UIImage imageNamed:@"Icon.png"];
-        [manager addImage:image];
+        NSArray *managers = [repository getCompletedGifManagers];
         
-        image = [UIImage imageNamed:@"Icon-small.png"];
-        [manager addImage:image];
-        
-        [manager finish];
-        
-        // This can be done immediately after calling finish or later when the gifManagerDidFinishCreatingGif:
-        // delegate method is called.
-        manager.name = @"Icon GIF";
-        manager.description = @"This is a test for the GIF creator";
+        GifManager *manager = [managers objectAtIndex:0];
+        manager.name = @"Test update";
         [manager update];
-        
     });
 
     // Override point for customization after application launch.
