@@ -9,6 +9,7 @@
 #import "GiffyViewController.h"
 #import "GifManager.h"
 #import "GifRepository.h"
+#import "PreviewViewController.h"
 
 @interface GiffyViewController ()
 
@@ -107,7 +108,7 @@
 
 - (void)didFinishWithCamera
 {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self dismissViewControllerAnimated:NO completion:nil];
     
     if ([self.capturedImages count] > 0)
     {
@@ -122,8 +123,25 @@
                                 [manager addImage:cameraImage];
             }
             [manager finish];
+            
+            PreviewViewController* previewViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PreviewView"];
+            previewViewController.delegate = self;
+            previewViewController.gifManager = manager;
+            previewViewController.preview = [self.capturedImages objectAtIndex:0];
+            [self presentViewController:previewViewController animated:NO completion:nil];
         }
     }
+}
+
+-(void)previewViewWasCancelled:(PreviewViewController *)sender
+{
+    // TODO: Remove the GIF from the server
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)previewViewWasUpdated:(PreviewViewController *)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

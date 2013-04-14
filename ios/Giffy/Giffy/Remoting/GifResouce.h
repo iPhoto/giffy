@@ -17,6 +17,6 @@
 -(GifContainer *)finish:(BuilderId *)builderId;
 -(NSArray *)get; // Returns an array of GifContainer
 -(GifContainer*)get:(ContainerId *)containerId;
--(BuilderId *)start;
+-(GifBuilder *)start;
 
 @end

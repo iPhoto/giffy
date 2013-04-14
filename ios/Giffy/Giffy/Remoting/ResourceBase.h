@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Authentication.h"
 #import "BuilderId.h"
+#import "GifBuilder.h"
 #import "GifComponent.h"
 #import "GifContainer.h"
 #import "Response.h"
@@ -27,6 +28,8 @@
 
 #define kAuthentication_UserName_Key @"UserName"
 #define kAuthentication_Token_Key @"Token"
+
+#define kGifBuilder_Name_Key @"Name"
 
 #define kGifComponent_BuilderId_Key @"BuilderId"
 #define kGifComponent_Image_Key @"Image"
@@ -75,7 +78,7 @@ typedef CF_ENUM(int, RequestType) {
 +(NSArray*)arrayOfGifContainersFromResponse:(Response*)response;
 +(Authentication*)authenticationFromResponse:(Response*)response;
 +(BOOL)boolFromResponse:(Response*)response;
-+(BuilderId*)builderIdFromResponse:(Response*)response;
++(GifBuilder*)builderFromResponse:(Response*)response;
 +(GifContainer*)gifContainerFromResponse:(Response*)response;
 +(NSDictionary*)jsonDictionaryFromGifComponent:(GifComponent*)component;
 

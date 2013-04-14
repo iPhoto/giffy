@@ -8,7 +8,7 @@
 
 #import "PreviewViewController.h"
 
-@interface PreviewViewController () <GifManagerDelegate>
+@interface PreviewViewController () <GifManagerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 @property (weak, nonatomic) IBOutlet UIImageView *previewView;
@@ -67,9 +67,8 @@
 }
 
 - (IBAction)cancel:(id)sender {
-    // TODO: Remove the GIF from the server
+    [self.delegate previewViewWasCancelled:self];
     self.gifManager = nil;
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)saveInformation:(id)sender {
@@ -100,8 +99,8 @@
 
 - (void)onPreviewComplete
 {
+    [self.delegate previewViewWasUpdated:self];
     self.gifManager = nil;
-    // TODO: Transition to the next view
 }
 
 #pragma mark - GifManagerDelegate methods
@@ -110,7 +109,7 @@
 {
     [self enableUI];
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:errorMessage
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
                                                         message:errorMessage
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
@@ -122,6 +121,14 @@
 {
     [self enableUI];
     [self onPreviewComplete];
+}
+
+#pragma mark - UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

@@ -310,10 +310,14 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-Bj-xqS"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-Bj-xqS">
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="677" constant="460" type="user" id="whG-Vp-lyV"/>
+                                </constraints>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcq-5e-gX2">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Y2z-Iz-PJy"/>
+                                    <constraint firstAttribute="height" constant="44" type="user" id="Y2z-Iz-PJy"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem title="Library" id="qZV-5T-FBA">
@@ -333,10 +337,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AQ4-Bj-xqS" firstAttribute="top" secondItem="RFY-W2-QTC" secondAttribute="top" type="default" id="07f-qs-IjZ"/>
+                            <constraint firstItem="AQ4-Bj-xqS" firstAttribute="top" secondItem="RFY-W2-QTC" secondAttribute="top" type="user" id="07f-qs-IjZ"/>
                             <constraint firstItem="Hcq-5e-gX2" firstAttribute="trailing" secondItem="RFY-W2-QTC" secondAttribute="trailing" type="default" id="Bxh-Pe-uyU"/>
-                            <constraint firstItem="Hcq-5e-gX2" firstAttribute="bottom" secondItem="RFY-W2-QTC" secondAttribute="bottom" type="default" id="IPz-Yi-vCa"/>
-                            <constraint firstItem="Hcq-5e-gX2" firstAttribute="top" secondItem="AQ4-Bj-xqS" secondAttribute="bottom" type="default" id="O6z-th-7ON"/>
+                            <constraint firstItem="Hcq-5e-gX2" firstAttribute="bottom" secondItem="RFY-W2-QTC" secondAttribute="bottom" type="user" id="IPz-Yi-vCa"/>
+                            <constraint firstItem="Hcq-5e-gX2" firstAttribute="top" secondItem="AQ4-Bj-xqS" secondAttribute="bottom" type="user" id="O6z-th-7ON"/>
                             <constraint firstItem="Hcq-5e-gX2" firstAttribute="leading" secondItem="RFY-W2-QTC" secondAttribute="leading" type="default" id="S6v-Jz-FJJ"/>
                             <constraint firstItem="AQ4-Bj-xqS" firstAttribute="trailing" secondItem="RFY-W2-QTC" secondAttribute="trailing" type="default" id="U6M-zg-LNt"/>
                             <constraint firstItem="AQ4-Bj-xqS" firstAttribute="leading" secondItem="RFY-W2-QTC" secondAttribute="leading" type="default" id="bf6-fe-kAh"/>
@@ -350,17 +354,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8F-Gw-Y16" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="490" y="-67"/>
+            <point key="canvasLocation" x="462" y="-67"/>
         </scene>
         <!--Preview View Controller - Preview-->
         <scene sceneID="6DN-VL-UuL">
             <objects>
-                <viewController id="eBc-24-YWT" customClass="PreviewViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PreviewView" id="eBc-24-YWT" customClass="PreviewViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pSy-NL-kbZ">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JzW-G6-Nar">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" type="user" id="Nmj-bR-P6v"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="Cancel" id="fM7-24-2VJ">
                                         <connections>
@@ -376,48 +383,67 @@
                                 </items>
                             </toolbar>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="g22-qp-R6Z"/>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4y8-cE-FeO">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4y8-cE-FeO">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="295" id="fec-aZ-awl"/>
+                                    <constraint firstAttribute="height" priority="647" constant="350" type="user" id="fcK-rB-qn5"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NOu-Up-RaK">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" type="user" id="kbk-7M-c9i"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eBc-24-YWT" id="5Ee-VP-izj"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9L-sw-79C">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" type="user" id="2hW-zP-laa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Comment:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cu4-tb-ewN">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" type="user" id="MUV-6s-Knx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bgi-g3-Y4e">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" type="user" id="IuF-77-2eK"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eBc-24-YWT" id="nSR-md-7Cf"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NOu-Up-RaK" firstAttribute="leading" secondItem="pSy-NL-kbZ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="76d-El-AVW"/>
-                            <constraint firstItem="Bgi-g3-Y4e" firstAttribute="top" secondItem="Cu4-tb-ewN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7rd-ff-1P9"/>
-                            <constraint firstItem="JzW-G6-Nar" firstAttribute="bottom" secondItem="pSy-NL-kbZ" secondAttribute="bottom" type="default" id="9T6-8D-YJh"/>
+                            <constraint firstItem="Bgi-g3-Y4e" firstAttribute="top" secondItem="Cu4-tb-ewN" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="7rd-ff-1P9"/>
+                            <constraint firstItem="JzW-G6-Nar" firstAttribute="bottom" secondItem="pSy-NL-kbZ" secondAttribute="bottom" type="user" id="9T6-8D-YJh"/>
                             <constraint firstAttribute="trailing" secondItem="Bgi-g3-Y4e" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="9z5-Lp-gIP"/>
                             <constraint firstItem="4y8-cE-FeO" firstAttribute="leading" secondItem="pSy-NL-kbZ" secondAttribute="leading" type="default" id="EUg-8L-kR1"/>
+                            <constraint firstItem="4y8-cE-FeO" firstAttribute="top" secondItem="Bgi-g3-Y4e" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="Jtb-xL-Nhd"/>
                             <constraint firstItem="4y8-cE-FeO" firstAttribute="trailing" secondItem="pSy-NL-kbZ" secondAttribute="trailing" type="default" id="L6T-Xj-D05"/>
                             <constraint firstAttribute="trailing" secondItem="NOu-Up-RaK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="NXz-KG-OUW"/>
-                            <constraint firstItem="NOu-Up-RaK" firstAttribute="top" secondItem="b9L-sw-79C" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="P1G-cQ-h4b"/>
+                            <constraint firstItem="NOu-Up-RaK" firstAttribute="top" secondItem="b9L-sw-79C" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="P1G-cQ-h4b"/>
                             <constraint firstItem="g22-qp-R6Z" firstAttribute="centerX" secondItem="Bgi-g3-Y4e" secondAttribute="centerX" type="default" id="Pi9-9w-22g"/>
                             <constraint firstItem="Bgi-g3-Y4e" firstAttribute="leading" secondItem="pSy-NL-kbZ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="U3K-vU-U8T"/>
                             <constraint firstItem="g22-qp-R6Z" firstAttribute="centerY" secondItem="pSy-NL-kbZ" secondAttribute="centerY" type="default" id="Vro-3x-Ewo"/>
-                            <constraint firstItem="b9L-sw-79C" firstAttribute="top" secondItem="pSy-NL-kbZ" secondAttribute="top" constant="20" symbolic="YES" type="default" id="XqG-1I-egT"/>
-                            <constraint firstItem="Cu4-tb-ewN" firstAttribute="top" secondItem="NOu-Up-RaK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="e5F-Wa-sdU"/>
+                            <constraint firstItem="b9L-sw-79C" firstAttribute="top" secondItem="pSy-NL-kbZ" secondAttribute="top" constant="20" symbolic="YES" type="user" id="XqG-1I-egT"/>
+                            <constraint firstItem="Cu4-tb-ewN" firstAttribute="top" secondItem="NOu-Up-RaK" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="e5F-Wa-sdU"/>
                             <constraint firstItem="Cu4-tb-ewN" firstAttribute="leading" secondItem="pSy-NL-kbZ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iSv-dh-ukF"/>
                             <constraint firstItem="JzW-G6-Nar" firstAttribute="trailing" secondItem="pSy-NL-kbZ" secondAttribute="trailing" type="default" id="ixc-je-aZB"/>
-                            <constraint firstItem="4y8-cE-FeO" firstAttribute="bottom" secondItem="JzW-G6-Nar" secondAttribute="top" type="default" id="r0F-KZ-4SO"/>
+                            <constraint firstItem="4y8-cE-FeO" firstAttribute="bottom" secondItem="JzW-G6-Nar" secondAttribute="top" type="user" id="r0F-KZ-4SO"/>
                             <constraint firstItem="JzW-G6-Nar" firstAttribute="leading" secondItem="pSy-NL-kbZ" secondAttribute="leading" type="default" id="s6L-1o-V4V"/>
                             <constraint firstItem="b9L-sw-79C" firstAttribute="leading" secondItem="pSy-NL-kbZ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="vgY-Qj-nZd"/>
                         </constraints>
@@ -484,6 +510,50 @@
     <resources>
         <image name="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" width="640" height="960"/>
     </resources>
+    <classes>
+        <class className="EntryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EntryViewController.h"/>
+        </class>
+        <class className="GiffyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GiffyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cameraAction:"/>
+                <relationship kind="action" name="imageLibraryAction:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PreviewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PreviewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="previewView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="waitIndicator" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="RegisterViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="confirmPassword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
