@@ -79,12 +79,29 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self registerForKeyboardNotifications];
+    //GiffyAppDelegate *mainDelegate = (GiffyAppDelegate *)[[[UIApplication sharedApplication]delegate];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)checkCredentials
+{
+//
+//    dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
+//    dispatch_async(dQueue, ^{
+//        UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:@"test" AndPassword:@"password"];
+//        BOOL success = [self.authenticationResource loginWithCredentials:credentials];
+//        if(!success)
+//            {
+//                // TODO
+//            }
+//    });
+//
+//    myDBManager = mainDelegate.myDBManager;
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {

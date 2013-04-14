@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AuthenticationResource.h"
 
 @interface RegisterViewController : UIViewController <UITextFieldDelegate>
 

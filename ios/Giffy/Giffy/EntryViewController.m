@@ -9,7 +9,6 @@
 #import "EntryViewController.h"
 
 @interface EntryViewController ()
-
 @end
 
 @implementation EntryViewController

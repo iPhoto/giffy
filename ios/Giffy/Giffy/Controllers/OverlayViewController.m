@@ -50,6 +50,7 @@
     if (sourceType == UIImagePickerControllerSourceTypeCamera)
     {
         self.imagePickerController.showsCameraControls = NO;
+        self.imagePickerController.cameraViewTransform = CGAffineTransformMakeScale(1.0, 1.03);
         
         if ([[self.imagePickerController.cameraOverlayView subviews] count] == 0)
         {
