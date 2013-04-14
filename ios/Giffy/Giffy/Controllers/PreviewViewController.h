@@ -12,5 +12,6 @@
 @interface PreviewViewController : UIViewController
 
 @property (strong, nonatomic) GifManager *gifManager;
+@property (strong, nonatomic) UIImage *preview;
 
 @end

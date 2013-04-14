@@ -22,8 +22,15 @@
 
 - (void)setGifManager:(GifManager *)gifManager
 {
+    [_gifManager removeDelegate:self];
     _gifManager = gifManager;
-    _gifManager.delegate = self;
+    [_gifManager addDelegate:self];
+    [self updateUI];
+}
+
+- (void)setPreview:(UIImage *)preview
+{
+    _preview = preview;
     [self updateUI];
 }
 
@@ -50,16 +57,18 @@
 
 - (void)updateUI
 {
-    if (!self.gifManager)
-        return;
+    self.previewView.image = self.preview;
     
-    self.titleField.text = self.gifManager.name;
-    self.descriptionField.text = self.gifManager.gifDescription;
-    self.previewView.image = self.gifManager.preview;
+    if (self.gifManager)
+    {
+        self.titleField.text = self.gifManager.name;
+        self.descriptionField.text = self.gifManager.gifDescription;
+    }
 }
 
 - (IBAction)cancel:(id)sender {
     // TODO: Remove the GIF from the server
+    self.gifManager = nil;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -91,6 +100,7 @@
 
 - (void)onPreviewComplete
 {
+    self.gifManager = nil;
     // TODO: Transition to the next view
 }
 

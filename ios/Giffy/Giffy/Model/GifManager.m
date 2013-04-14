@@ -22,6 +22,7 @@
 @property (readwrite, strong, atomic) UIImage* thumbnail;
 @property (readwrite, atomic) BOOL updateRequired;
 
+@property (readonly, strong, nonatomic) NSMutableSet *delegates;
 @property (atomic) BOOL isFinishWaitingToBeQueued;
 @property (atomic) BOOL isUpdateWaitingToBeQueued;
 @property (strong, nonatomic) NSMutableArray *imageUploadQueue; // Array of GifComponent
@@ -37,10 +38,12 @@
     self = [super init];
     if(self)
     {
-        _delegate = delegate;
         _gifResource = [[GifResouce alloc] init];
         _imageUploadQueue = [[NSMutableArray alloc] init];
         _workQueue = dispatch_queue_create("GifManager dispatch", NULL);
+     
+        if (delegate)
+            [self.delegates addObject:delegate];
         
         [self queueStart];
     }
@@ -64,6 +67,16 @@
 }
 
 #pragma mark - Property implementations
+
+@synthesize delegates = _delegates;
+
+-(NSMutableSet*)delegates
+{
+    if (!_delegates)
+        _delegates = [[NSMutableSet alloc] init];
+    
+    return _delegates;
+}
 
 @synthesize gifDescription = _gifDescription;
 
@@ -104,6 +117,16 @@
 }
 
 #pragma mark - Public methods
+
+-(void)addDelegate:(id<GifManagerDelegate>)delegate
+{
+    [self.delegates addObject:delegate];
+}
+
+-(void)removeDelegate:(id<GifManagerDelegate>)delegate
+{
+    [self.delegates removeObject:delegate];
+}
 
 -(void)addImage:(UIImage *)image
 {
@@ -212,42 +235,47 @@
 -(void)notifyError:(NSString*)errorMessage
 {
     NSLog(@"GifManager Error: %@", errorMessage);
-    if (self.delegate &&[self.delegate respondsToSelector:@selector(gifManager:didReceiveError:)])
-    {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate gifManager:self didReceiveError:errorMessage];
-        });
-    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (id<GifManagerDelegate> delegate in self.delegates)
+        {
+            if([delegate respondsToSelector:@selector(gifManager:didReceiveError:)])
+                [delegate gifManager:self didReceiveError:errorMessage];
+        }
+    });
 }
 
 -(void)notifyFinished
 {
-    if (self.delegate)
-    {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate gifManagerDidFinishCreatingGif:self];
-        });
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (id<GifManagerDelegate> delegate in self.delegates)
+        {
+            if([delegate respondsToSelector:@selector(gifManagerDidFinishCreatingGif:)])
+                [delegate gifManagerDidFinishCreatingGif:self];
+        }
+    });
 }
 
 -(void)notifyUpdateComplete
 {
-    if (self.delegate &&[self.delegate respondsToSelector:@selector(gifManagerDidFinishUpdating:)])
-    {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate gifManagerDidFinishUpdating:self];
-        });
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (id<GifManagerDelegate> delegate in self.delegates)
+        {
+            if([delegate respondsToSelector:@selector(gifManagerDidFinishUpdating:)])
+                [delegate gifManagerDidFinishUpdating:self];
+        }
+    });
 }
 
 -(void)notifyUpdloadedImage:(int)imageIndex
 {
-    if (self.delegate &&[self.delegate respondsToSelector:@selector(gifManager:didFinishUploadingImageIndex:of:)])
-    {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.delegate gifManager:self didFinishUploadingImageIndex:imageIndex of:self.addedImageCount];
-        });
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (id<GifManagerDelegate> delegate in self.delegates)
+        {
+            if([delegate respondsToSelector:@selector(gifManager:didFinishUploadingImageIndex:of:)])
+               [delegate gifManager:self didFinishUploadingImageIndex:imageIndex of:self.addedImageCount];
+        }
+    });
 }
 
 -(BOOL)queueAddImageIfPossible

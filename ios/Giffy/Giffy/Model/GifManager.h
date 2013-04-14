@@ -27,11 +27,13 @@
 -(id)initWithDelegate:(id<GifManagerDelegate>)delegate;
 -(id)initWithGifContainer:(GifContainer *)container;
 
+-(void)addDelegate:(id<GifManagerDelegate>)delegate;
+-(void)removeDelegate:(id<GifManagerDelegate>)delegate;
+
 -(void)addImage:(UIImage *)image;
 -(void)finish;
 -(void)update;
 
-@property (strong, nonatomic) id<GifManagerDelegate> delegate;
 @property (readonly, atomic) UIImage* gif;
 @property (atomic) NSString* gifDescription;
 @property (readonly, nonatomic) BOOL isComplete;
