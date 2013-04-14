@@ -9,7 +9,7 @@
 #import "GiffyAppDelegate.h"
 
 #import "AuthenticationResource.h"
-#import "GifResouce.h"
+#import "GifManager.h"
 
 @interface GiffyAppDelegate() <AuthenticationResourceDelegate>
 @end
@@ -29,75 +29,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
-//    dispatch_async(dQueue, ^{
-//        
-////        RegisterModel *registerModel = [[RegisterModel alloc] init];
-////        registerModel.userName = @"test3";
-////        registerModel.password = @"password1";
-////        registerModel.confirmPassword = @"password1";
-////        BOOL success1 = [self.authenticationResource registerUser:registerModel];
-////        
-////        if(success1)
-////        {
-////        }
-//        
-//        UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:@"test" AndPassword:@"password"];
-//        BOOL success = [self.authenticationResource loginWithCredentials:credentials];
-//        if(!success)
-//        {
-//            // TODO
-//        }
+    dispatch_queue_t dQueue = dispatch_queue_create("Login Queue", NULL);
+    dispatch_async(dQueue, ^{
         
-//        UserCredentials *credentials = [[UserCredentials alloc] initWithUserName:@"test" AndPassword:@"password"];
-//        BOOL success = [self.authenticationResource loginWithCredentials:credentials];
-//        if(!success)
-//        {
-//            // TODO
-//        }
-//        else
-//        {
-//            GifResouce* resource = [[GifResouce alloc] init];
-//            BuilderId* builderId = [resource start];
-//            if(builderId)
-//            {
-//                GifComponent *component = [[GifComponent alloc] init];
-//                component.builderId = builderId;
-//                
-//                UIImage* image = [UIImage imageNamed:@"Default.png"];
-//                
-//                component.imageData = UIImagePNGRepresentation(image);
-//                component.order = 1;
-//                BOOL didAdd = [resource add:component];
-//                if (didAdd)
-//                {
-//                }
-//                
-//                GifContainer *container1 = [resource finish:builderId];
-//                if (container1)
-//                {
-//                    
-//                }
-//                
-//                BOOL result = [resource addName:@"Foo" description:@"My giffy gif" toContainer:container1.idValue];
-//                if(result)
-//                {
-//                }
-//
-//                
-//                GifContainer *container2 = [resource get:container1.idValue];
-//                if (container2)
-//                {
-//                    
-//                }
-//                
-//                NSArray *allContainers = [resource get];
-//                if (allContainers)
-//                {
-//                }
-//            }
-//        }
-//    });
+        // Pass in a GifManagerDelegate here
+        GifManager *manager = [[GifManager alloc] initWithDelegate:nil];
+        
+        UIImage* image = [UIImage imageNamed:@"Icon.png"];
+        [manager addImage:image];
+        
+        image = [UIImage imageNamed:@"Icon-small.png"];
+        [manager addImage:image];
+        
+        [manager finish];
+        
+        // This can be done immediately after calling finish or later when the gifManager:didFinishCreatingGif:withThumbnail:
+        // delegate method is called.
+        [manager addName:@"Icon GIF" description:@"This is a test for the GIF creator"];
+        
+    });
 
     // Override point for customization after application launch.
     return YES;

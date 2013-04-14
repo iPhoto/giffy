@@ -32,9 +32,9 @@
     return [GifResouce boolFromResponse:response];
 }
 
--(BOOL)addName:(NSString*)name description:(NSString*) description toContainer:(int)containerId
+-(BOOL)addName:(NSString*)name description:(NSString*) description toContainer:(ContainerId *)containerId
 {
-    NSDictionary *values = @{kGifController_GifContainerID_Key : @(containerId),
+    NSDictionary *values = @{kGifController_GifContainerID_Key : @(containerId.idValue),
                              kGifContainer_Name_Key : name,
                              kGifContainer_Description_Key: description};
     
@@ -83,11 +83,11 @@
     return [GifResouce arrayOfGifContainersFromResponse:response];
 }
 
--(GifContainer*)get:(int)containerId
+-(GifContainer*)get:(ContainerId *)containerId
 {
     Response* response = [self makeRequestFromController:kGifController_Name
                                                     type:RequestTypeGet
-                                                  values:@{kGifController_Id_Parameter : @(containerId)}];
+                                                  values:@{kGifController_Id_Parameter : @(containerId.idValue)}];
     
     if (!response.success)
     {

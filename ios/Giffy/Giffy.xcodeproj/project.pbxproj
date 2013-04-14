@@ -19,6 +19,8 @@
 		171D7339171A45320098AD05 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D7338171A45320098AD05 /* Base64.m */; };
 		171D733C171A54040098AD05 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D733B171A54030098AD05 /* Model.m */; };
 		171D733F171A65100098AD05 /* RegisterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D733E171A65100098AD05 /* RegisterModel.m */; };
+		17C3AC64171AFD56006E0712 /* GifManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C3AC63171AFD56006E0712 /* GifManager.m */; };
+		17C3AC67171B0827006E0712 /* ContainerId.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C3AC66171B0827006E0712 /* ContainerId.m */; };
 		758433CE1719015C007C496F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433CD1719015C007C496F /* UIKit.framework */; };
 		758433D01719015C007C496F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433CF1719015C007C496F /* Foundation.framework */; };
 		758433D21719015C007C496F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758433D11719015C007C496F /* CoreGraphics.framework */; };
@@ -85,6 +87,10 @@
 		171D733B171A54030098AD05 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Model.m; path = Model/Model.m; sourceTree = "<group>"; };
 		171D733D171A65100098AD05 /* RegisterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterModel.h; path = Model/RegisterModel.h; sourceTree = "<group>"; };
 		171D733E171A65100098AD05 /* RegisterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterModel.m; path = Model/RegisterModel.m; sourceTree = "<group>"; };
+		17C3AC62171AFD56006E0712 /* GifManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GifManager.h; path = Model/GifManager.h; sourceTree = "<group>"; };
+		17C3AC63171AFD56006E0712 /* GifManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GifManager.m; path = Model/GifManager.m; sourceTree = "<group>"; };
+		17C3AC65171B0827006E0712 /* ContainerId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainerId.h; path = Model/ContainerId.h; sourceTree = "<group>"; };
+		17C3AC66171B0827006E0712 /* ContainerId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContainerId.m; path = Model/ContainerId.m; sourceTree = "<group>"; };
 		758433CA1719015C007C496F /* Giffy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Giffy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		758433CD1719015C007C496F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		758433CF1719015C007C496F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -173,6 +179,8 @@
 				171D7328171A1A200098AD05 /* Authentication.m */,
 				171D7333171A269F0098AD05 /* BuilderId.h */,
 				171D7334171A269F0098AD05 /* BuilderId.m */,
+				17C3AC65171B0827006E0712 /* ContainerId.h */,
+				17C3AC66171B0827006E0712 /* ContainerId.m */,
 				171D732A171A1EB60098AD05 /* GifComponent.h */,
 				171D732B171A1EB60098AD05 /* GifComponent.m */,
 				171D732D171A1F310098AD05 /* GifContainer.h */,
@@ -183,6 +191,8 @@
 				171D733E171A65100098AD05 /* RegisterModel.m */,
 				171D73211719F8650098AD05 /* UserCredentials.h */,
 				171D73221719F8650098AD05 /* UserCredentials.m */,
+				17C3AC62171AFD56006E0712 /* GifManager.h */,
+				17C3AC63171AFD56006E0712 /* GifManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -438,6 +448,8 @@
 				171D7339171A45320098AD05 /* Base64.m in Sources */,
 				171D733C171A54040098AD05 /* Model.m in Sources */,
 				171D733F171A65100098AD05 /* RegisterModel.m in Sources */,
+				17C3AC64171AFD56006E0712 /* GifManager.m in Sources */,
+				17C3AC67171B0827006E0712 /* ContainerId.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

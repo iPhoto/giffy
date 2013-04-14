@@ -1,14 +1,14 @@
 //
-//  BuilderId.m
+//  ContainerId.m
 //  Giffy
 //
-//  Created by Michael Dour on 4/13/13.
+//  Created by Michael Dour on 4/14/13.
 //  Copyright (c) 2013 The Giffy Group. All rights reserved.
 //
 
-#import "BuilderId.h"
+#import "ContainerId.h"
 
-@implementation BuilderId
+@implementation ContainerId
 
 -(id)initWithId:(long)idValue
 {
