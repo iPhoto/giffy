@@ -7,6 +7,7 @@
 //
 
 #import "AuthenticationResource.h"
+#import "Authentication.h"
 #import "ResourceBase.h"
 
 @implementation AuthenticationResource
@@ -70,44 +71,27 @@
     if(!credentials.userName || !credentials.password)
         return NO;
     
-    Response* response =  [self makeRequestFromController:kLoginControllerName
-                                                 WithType:RequestTypePost
-                                                AndValues:@{@"UserName" : credentials.userName, @"Password" : credentials.password}];
+    Response* response =  [self makeRequestFromController:kLoginController_Name
+                                                 type:RequestTypePost
+                                                values:@{kUserCredentials_UserName_Key : credentials.userName, kUserCredentials_Password_Key : credentials.password}];
     
     if (!response.success)
     {
-        NSLog(@"Login was not successful: %@", [response errorMessage]);
+        NSLog(@"Login was not successful: %@", response.message);
         return NO;
     }
+    
+    Authentication* authentication = [AuthenticationResource authenticationFromResponse:response];
+    if(!authentication)
+        return NO;
     
     NSLog(@"Login was successful");
+    NSAssert([authentication.userName isEqualToString:credentials.userName], @"The user name in the response did not match.");
     
+    credentials.authenticationToken = authentication.token;
     self.currentCredentials = credentials;
+    
     [self storeCredentials];
-    
-    NSUInteger count = [response.data count];
-    NSAssert(count == 1, @"The login response should have one data result.");
-    
-    if (count == 0)
-    {
-        NSLog(@"No login data returned");
-        return NO;
-    }
-    
-    id data = response.data[0];
-    if (![data isKindOfClass:[NSDictionary class]])
-    {
-         NSLog(@"The login response data is not in the correct format.");
-        return NO;
-    }
-    
-    NSDictionary* dataDictionary = (NSDictionary*)data;
-    
-    NSString* userName = dataDictionary[kLoginResponseUserNameKey];
-    NSString* token = dataDictionary[kLoginResponseTokenKey];
-    NSAssert([userName isEqualToString:credentials.userName], @"The user name in the response did not match.");
- 
-    credentials.authenticationToken = token;
     
     return YES;
 }

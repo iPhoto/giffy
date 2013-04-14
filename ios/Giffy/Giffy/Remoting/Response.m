@@ -15,7 +15,19 @@
 
 @implementation Response
 
--(id)initWithSuccess:(BOOL)success AndData:(NSArray *)data
+-(id)initWithMessage:(NSString*)message
+{
+    self = [super init];
+    if(self)
+    {
+        _message = message;
+        _success = NO;
+    }
+    
+    return self;
+}
+
+-(id)initWithSuccess:(BOOL)success data:(id)data
 {
     self = [super init];
     if(self)
@@ -25,14 +37,6 @@
     }
     
     return self;
-}
-
--(NSString*)errorMessage
-{
-    if(self.success)
-        return nil;
-    
-    return self.data[0];
 }
 
 @end
