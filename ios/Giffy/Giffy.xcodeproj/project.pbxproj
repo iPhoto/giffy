@@ -65,6 +65,7 @@
 		7584349B171B2C26007C496F /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584349A171B2C25007C496F /* OverlayViewController.m */; };
 		7584349C171B2C26007C496F /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7584349A171B2C25007C496F /* OverlayViewController.m */; };
 		758434A2171B5069007C496F /* GalleryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 758434A1171B5068007C496F /* GalleryTVC.m */; };
+		758434A5171B7DE6007C496F /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758434A4171B7DE5007C496F /* GifViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,8 @@
 		7584349A171B2C25007C496F /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayViewController.m; path = Controllers/OverlayViewController.m; sourceTree = "<group>"; };
 		758434A0171B5067007C496F /* GalleryTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GalleryTVC.h; path = Controllers/GalleryTVC.h; sourceTree = "<group>"; };
 		758434A1171B5068007C496F /* GalleryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GalleryTVC.m; path = Controllers/GalleryTVC.m; sourceTree = "<group>"; };
+		758434A3171B7DE4007C496F /* GifViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GifViewController.h; path = Controllers/GifViewController.h; sourceTree = "<group>"; };
+		758434A4171B7DE5007C496F /* GifViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GifViewController.m; path = Controllers/GifViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +351,8 @@
 			children = (
 				758434A0171B5067007C496F /* GalleryTVC.h */,
 				758434A1171B5068007C496F /* GalleryTVC.m */,
+				758434A3171B7DE4007C496F /* GifViewController.h */,
+				758434A4171B7DE5007C496F /* GifViewController.m */,
 				75843499171B2C24007C496F /* OverlayViewController.h */,
 				7584349A171B2C25007C496F /* OverlayViewController.m */,
 				75843478171A224A007C496F /* RegisterViewController.h */,
@@ -515,6 +520,7 @@
 				17B4CEDA171B325F0089C792 /* PreviewViewController.m in Sources */,
 				758434A2171B5069007C496F /* GalleryTVC.m in Sources */,
 				17957E81171B5A8B00F71A2E /* GifBuilder.m in Sources */,
+				758434A5171B7DE6007C496F /* GifViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

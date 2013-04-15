@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Jt8-2V-L1R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="NjZ-SO-csy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -307,7 +307,7 @@
             <objects>
                 <viewController storyboardIdentifier="GiffyViewController" id="moR-Fv-XDo" customClass="GiffyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RFY-W2-QTC">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Plain-Blue-Gradient-iPhone-wallpaper-ilikewallpaper_com.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-Bj-xqS">
@@ -353,7 +353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8F-Gw-Y16" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="462" y="-67"/>
+            <point key="canvasLocation" x="512" y="-346"/>
         </scene>
         <!--Preview View Controller - Preview-->
         <scene sceneID="6DN-VL-UuL">
@@ -458,14 +458,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oo1-zO-U5D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003" y="-204"/>
+            <point key="canvasLocation" x="512" y="309"/>
         </scene>
         <!--GalleryTVC - Gallery-->
         <scene sceneID="LVm-Bj-zCD">
             <objects>
                 <tableViewController id="Jt8-2V-L1R" customClass="GalleryTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZH9-rJ-qvk">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -490,7 +490,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="moR-Fv-XDo" kind="push" identifier="Show Gif" id="svR-Qj-VII"/>
+                                    <segue destination="F3g-Uh-O0V" kind="push" identifier="Gif View" id="kPF-6s-11w"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -503,7 +503,34 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lqs-5e-xVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="665"/>
+            <point key="canvasLocation" x="986" y="-346"/>
+        </scene>
+        <!--Gif View Controller-->
+        <scene sceneID="iv7-KG-Aus">
+            <objects>
+                <viewController id="F3g-Uh-O0V" customClass="GifViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X3e-XP-RiR">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wj-Oh-N1g"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7wj-Oh-N1g" firstAttribute="leading" secondItem="X3e-XP-RiR" secondAttribute="leading" type="default" id="G5I-eZ-qiF"/>
+                            <constraint firstItem="7wj-Oh-N1g" firstAttribute="top" secondItem="X3e-XP-RiR" secondAttribute="top" type="default" id="Mhs-SD-ZAe"/>
+                            <constraint firstItem="7wj-Oh-N1g" firstAttribute="bottom" secondItem="X3e-XP-RiR" secondAttribute="bottom" type="default" id="eok-KZ-Aqm"/>
+                            <constraint firstItem="7wj-Oh-N1g" firstAttribute="trailing" secondItem="X3e-XP-RiR" secondAttribute="trailing" type="default" id="w3n-45-pvf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bPu-41-E2T"/>
+                    <connections>
+                        <outlet property="imageView" destination="7wj-Oh-N1g" id="qDl-L5-Yxc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qv-IT-lMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1516" y="-346"/>
         </scene>
     </scenes>
     <resources>
@@ -515,6 +542,12 @@
         </class>
         <class className="GalleryTVC" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GalleryTVC.h"/>
+        </class>
+        <class className="GifViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GifViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
         </class>
         <class className="GiffyViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GiffyViewController.h"/>
@@ -564,6 +597,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="svR-Qj-VII"/>
+        <segue reference="fKa-Fw-orJ"/>
     </inferredMetricsTieBreakers>
 </document>

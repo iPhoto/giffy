@@ -7,6 +7,7 @@
 //
 
 #import "GalleryTVC.h"
+#import "UIImage+animatedGIF.h"
 
 @interface GalleryTVC ()
 
@@ -72,8 +73,8 @@
 }
 
 - (UIImage *)thumbnailForRow:(NSUInteger)row {
-    NSData *thumbImage = [[self.gifManagers objectAtIndex:row] preview];
-    UIImage *image = [UIImage imageWithData:thumbImage];
+    NSData *thumbImage = [[self.gifManagers objectAtIndex:row] thumbnail];
+    UIImage *image = [[self.gifManagers objectAtIndex:row] gif];//[UIImage imageWithData:thumbImage];
     return image;
 }
 
@@ -95,9 +96,9 @@
     if ([sender isKindOfClass:[UITableViewCell class]]) {
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         if (indexPath) {
-            if ([segue.identifier isEqualToString:@"Show Gif"]) {
-                if ([segue.destinationViewController respondsToSelector:@selector(activeImage:)]){
-                    [segue.destinationViewController performSelector:@selector(activeImage:) withObject:[self.gifManagers[indexPath.row] gif]];
+            if ([segue.identifier isEqualToString:@"Gif View"]) {
+                if ([segue.destinationViewController respondsToSelector:@selector(setImage:)]){
+                    [segue.destinationViewController performSelector:@selector(setImage:) withObject:[self.gifManagers[indexPath.row] gif]];
                 }
             }
         }
