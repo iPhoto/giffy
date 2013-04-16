@@ -54,17 +54,27 @@ namespace Giffy.Controllers.Api.Gif
 
         [HttpGet]
         [ActionName("Default")]
-        public ApiResult<List<GifContainer>> Get()
+        public ApiResult<IEnumerable<object>> Get(int? skip = null, int? take = null)
         {
             var userName = this.UserName.ToLower();
             var gifContainers =
-                (from container in new GifContainerRepository().Models
+                 from container in new GifContainerRepository().Models
                  where container.CreatedBy == userName
                  orderby container.CreatedOn descending
-                 select container)
-                .ToList();
+                 select new 
+                 { 
+                    container.ID,
+                    container.Name,
+                    container.Description,
+                    container.Thumbnail
+                 };
 
-            return Success(gifContainers);
+            if (skip.HasValue)
+                gifContainers = gifContainers.Skip(skip.Value);
+            if (take.HasValue)
+                gifContainers = gifContainers.Take(take.Value);
+
+            return Success(gifContainers.ToList() as IEnumerable<object>);
         }
 
         [HttpPost]
